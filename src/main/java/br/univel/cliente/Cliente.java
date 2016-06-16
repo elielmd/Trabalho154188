@@ -1,16 +1,39 @@
 package br.univel.cliente;
 
+import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Tabela;
+
+@Tabela("cad_cliente")
 public class Cliente {
 
+	@Coluna(pk = true, nome = "clId", tamanho = -1)
 	private int id;
+
+	@Coluna(nome = "clNome", tamanho = 100)
 	private String nome;
+
+	@Coluna(nome = "clEndereco", tamanho = 255)
 	private String endereco;
+
+	@Coluna(nome = "clComplemento", tamanho = 255)
 	private String complemento;
+
+	@Coluna(nome = "clBairro", tamanho = 100)
 	private String bairro;
+
+	@Coluna(nome = "clCidade", tamanho = 100)
 	private String cidade;
+
+	@Coluna(nome = "clEstado", tamanho = 100)
 	private String estado;
+
+	@Coluna(nome = "clCep", tamanho = 15)
 	private String cep;
+
+	@Coluna(nome = "clTelefone", tamanho = 15)
 	private String telefone;
+
+	@Coluna(nome = "clCelular", tamanho = 15)
 	private String celular;
 
 	public Cliente(int id, String nome, String endereco, String complemento, String bairro, String cidade,
@@ -106,6 +129,10 @@ public class Cliente {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+
+	public Cliente() {
+		this(0, null, null, null, null, null, null, null, null, null);
 	}
 
 }
