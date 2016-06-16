@@ -1,7 +1,5 @@
 package br.univel.cliente;
 
-import java.math.BigDecimal;
-
 public class Cliente {
 
 	private int id;
@@ -9,6 +7,26 @@ public class Cliente {
 	private String endereco;
 	private String complemento;
 	private String bairro;
+	private String cidade;
+	private String estado;
+	private String cep;
+	private String telefone;
+	private String celular;
+
+	public Cliente(int id, String nome, String endereco, String complemento, String bairro, String cidade,
+			String estado, String cep, String telefone, String celular) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+		this.telefone = telefone;
+		this.celular = celular;
+	}
 
 	public int getId() {
 		return id;
@@ -87,29 +105,6 @@ public class Cliente {
 	}
 
 	public void setCelular(String celular) {
-		this.celular = celular;
-	}
-
-	private String cidade;
-	private String estado;
-	private String cep;
-	private String telefone;
-	private String celular;
-
-	public Cliente(int id, String nome, String endereco, String complemento, String bairro, String cidade,
-			String estado, String cep, String telefone, String celular) {
-		// id, nome, endereço, numero, complemento, bairro, cidade, estado, cep,
-		// telefone, celular
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.endereco = endereco;
-		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
-		this.cep = cep;
-		this.telefone = telefone;
 		this.celular = celular;
 	}
 
