@@ -1,4 +1,4 @@
-package br.univel.cliente;
+package br.univel;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,11 +10,11 @@ import java.util.List;
 
 public class ArquivoReader {
 
-	public List<String> lerArquivo() {
+	public List<String> lerArquivo(String arquivo) {
 		ArrayList<String> lista = new ArrayList<>();
 		try {
 			FileReader fr;
-			fr = new FileReader(new File("listaCliente.txt"));
+			fr = new FileReader(new File(arquivo));
 			BufferedReader br = new BufferedReader(fr);
 			String linha = null;
 			while ((linha = br.readLine()) != null) {
@@ -26,12 +26,5 @@ public class ArquivoReader {
 			e.printStackTrace();
 		}
 		return lista;
-
 	}
-
-	public static void main(String[] args) {
-		ArquivoReader arq = new ArquivoReader();
-		arq.lerArquivo().forEach(System.out::println);
-	}
-
 }
