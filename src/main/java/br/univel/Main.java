@@ -1,24 +1,29 @@
 package br.univel;
 
-import java.awt.List;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.univel.cliente.Cliente;
 import br.univel.cliente.ClienteParser;
 import br.univel.produto.Produto;
-import br.univel.produto.ProdutoParser;
 
 public class Main {
-
-	public static void main(String[] args) throws Exception {
-
+	
+	private static List<Produto> listaProduto = new ArrayList<Produto>();
+	private static List<Cliente> listaCliente = new ArrayList<Cliente>();
+	
+	public static void lerCliente(){
+		//ArquivoReader arquivo = new ArquivoReader();
+		//arquivo.lerArquivo(null).forEach(System.out::println);
+	
 		ArquivoReader reader = new ArquivoReader();
-		java.util.List<String> lista = reader.lerArquivo(null);
+		List<String> lista = reader.lerArquivo("listaCliente.txt");
 
 		/*ProdutoParser parserProduto = new ProdutoParser();
 		java.util.List<Produto> listaPrd = parserProduto.getProduto(lista);*/
 
 		ClienteParser parserCliente = new ClienteParser();
-		java.util.List<Cliente> listaPrdCliente = parserCliente.getCliente(lista);
+		listaCliente = parserCliente.getCliente(lista);
 
 	/*	listaPrd.forEach(e -> {
 			System.out.println("id.......: " + e.getId());
@@ -26,7 +31,7 @@ public class Main {
 			System.out.println("Preco....: " + e.getPreco());
 		}); */
 		
-		listaPrdCliente.forEach(e -> {
+		listaCliente.forEach(e -> {
 			System.out.println("id.........: " + e.getId());
 			System.out.println("Nome.......: " + e.getNome());
 			System.out.println("Endereco...: " + e.getEndereco());
@@ -40,5 +45,9 @@ public class Main {
 			System.out.println("");
 		});
 		
+	}
+	
+	public static void main(String[] args) {		
+		lerCliente();
 	}
 }

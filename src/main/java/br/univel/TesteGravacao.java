@@ -17,8 +17,8 @@ public class TesteGravacao {
 	public static void main(String[] args) throws IOException {
 
 		Cliente c = new Cliente();
-		c.setId(1);
-		c.setNome("teste");
+		c.getId();
+		c.getNome();
 
 		StringWriter out = new StringWriter();
 		JAXBContext context = null;

@@ -14,7 +14,7 @@ public class ArquivoReader {
 		ArrayList<String> lista = new ArrayList<>();
 		try {
 			FileReader fr;
-			fr = new FileReader(new File("listaCliente.txt"));
+			fr = new FileReader(new File(arquivo));
 			BufferedReader br = new BufferedReader(fr);
 			String linha = null;
 			while ((linha = br.readLine()) != null) {
@@ -28,8 +28,8 @@ public class ArquivoReader {
 		return lista;
 	}
 	
-	public static void main(String[] args) {
-		ArquivoReader arquivo = new ArquivoReader();
-		arquivo.lerArquivo(null).forEach(System.out::println);
-	}
+	//public static void main(String[] args) {
+	//	ArquivoReader arquivo = new ArquivoReader();
+	//	arquivo.lerArquivo(null).forEach(System.out::println);
+	//}
 }
