@@ -27,13 +27,8 @@ public class ProdutoParser {
 	}
 
 	private Produto getProduto(String str) {
-		// importar de arquivo CSV
-//		String[] itens = str.split(" ");
-//		int id = Integer.parseInt(itens[0]);                                 
-//		String descricao = itens[1];
-//		BigDecimal preco = new BigDecimal(itens[2].replaceAll(",", ","));
-		
-		int id = Integer.parseInt(str.substring(0,str.indexOf(' ')));
+
+		int id = Integer.parseInt(str.substring(0, str.indexOf(' ')));
 		String descricao = null;
 		BigDecimal preco = null;
 		Produto p = new Produto(id, descricao, preco);

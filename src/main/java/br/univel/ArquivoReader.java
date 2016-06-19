@@ -14,7 +14,7 @@ public class ArquivoReader {
 		ArrayList<String> lista = new ArrayList<>();
 		try {
 			FileReader fr;
-			fr = new FileReader(new File(arquivo));
+			fr = new FileReader(new File("listaCliente.txt"));
 			BufferedReader br = new BufferedReader(fr);
 			String linha = null;
 			while ((linha = br.readLine()) != null) {
@@ -26,5 +26,10 @@ public class ArquivoReader {
 			e.printStackTrace();
 		}
 		return lista;
+	}
+	
+	public static void main(String[] args) {
+		ArquivoReader arquivo = new ArquivoReader();
+		arquivo.lerArquivo(null).forEach(System.out::println);
 	}
 }

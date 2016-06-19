@@ -1,2 +1,2 @@
 01,Eliel Marques Dourado,Rua Grecia 1046,Casa de tijolo,Jardim Italia,Cascavel,Parana,85818330,4533282906,4598298779
-02,Carlos Luiz Louterio,Rua Guajuvira,Casa verde,Sao Gabriel,Cascavel,Parana,85790000,,4598119045
+02,Carlos Luiz Louterio,Rua Guajuvira,Casa verde,Sao Gabriel,Cascavel,Parana,85790000,4533282906,4598119045
