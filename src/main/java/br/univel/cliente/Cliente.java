@@ -1,5 +1,7 @@
 package br.univel.cliente;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,10 +10,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
 
+//
 @XmlRootElement(name = "cliente")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Tabela("cad_cliente")
-public class Cliente {
+public class Cliente implements Serializable {
 
 	@XmlElement(name = "id")
 	@Coluna(pk = true, nome = "clId", tamanho = -1)

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArquivoReader {
+public class LerArquivoTXT {
 
 	public List<String> lerArquivo(String arquivo) {
 		ArrayList<String> lista = new ArrayList<>();

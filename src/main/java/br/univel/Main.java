@@ -16,7 +16,7 @@ public class Main {
 		//ArquivoReader arquivo = new ArquivoReader();
 		//arquivo.lerArquivo(null).forEach(System.out::println);
 	
-		ArquivoReader reader = new ArquivoReader();
+		LerArquivoTXT reader = new LerArquivoTXT();
 		List<String> lista = reader.lerArquivo("listaCliente.txt");
 
 		/*ProdutoParser parserProduto = new ProdutoParser();
