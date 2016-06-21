@@ -1,6 +1,10 @@
 package br.univel;
 
+import static org.junit.Assert.*;
+
 import java.io.File;
+
+import org.junit.Test;
 
 import br.univel.cliente.TelaCliente;
 
@@ -13,14 +17,13 @@ public class TesteClinte {
 
 	}
 
-	/*@Test
-	public void testGravaXML() {
-		TelaCliente tCliente = new TelaCliente();
-		String xml = "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml";
-		File arquivo = new File(xml);
-		tCliente.GravaXML(arquivo);
-		//assertFalse("D");
-	}*/
+	/*
+	 * @Test public void testGravaXML() { TelaCliente tCliente = new
+	 * TelaCliente(); String xml =
+	 * "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml"; File
+	 * arquivo = new File(xml); tCliente.GravaXML(arquivo); //assertFalse("D");
+	 * }
+	 */
 
 	@Test
 	public void testLerXML() {
