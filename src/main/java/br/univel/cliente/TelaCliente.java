@@ -87,7 +87,7 @@ public class TelaCliente extends JFrame {
 		btnGravaXMLButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(listaCliente);
-				String xml = "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml";
+				String xml = "listaCliente.xml";
 				File arquivo = new File(xml);
 				GravaXML(arquivo);
 			}
@@ -103,7 +103,7 @@ public class TelaCliente extends JFrame {
 		btnImportaXMLButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(listaCliente);
-				String xml = "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml";
+				String xml = "listaCliente.xml";
 				File arquivo = new File(xml);
 				LerXML(arquivo);
 			}
@@ -119,7 +119,7 @@ public class TelaCliente extends JFrame {
 		btnGSerializableButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(listaCliente);
-				String xml = "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.dat";
+				String xml = "listaCliente.dat";
 				File arquivo = new File(xml);
 				GravarSerializacao(arquivo);
 			}
@@ -135,7 +135,7 @@ public class TelaCliente extends JFrame {
 		btnISerializableButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(listaCliente);
-				String xml = "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.dat";
+				String xml = "listaCliente.dat";
 				File arquivo = new File(xml);
 				LerSerializacao(arquivo);
 			}
@@ -250,7 +250,7 @@ public class TelaCliente extends JFrame {
 	protected void preencheTabela() {
 
 		LerArquivoTXT reader = new LerArquivoTXT();
-		List<String> lista = reader.lerArquivo("C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.txt");
+		List<String> lista = reader.lerArquivo("listaCliente.txt");
 		ClienteParser parserCliente = new ClienteParser();
 		listaCliente = parserCliente.getCliente(lista);
 		// System.out.println(lista);
