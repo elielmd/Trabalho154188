@@ -8,29 +8,29 @@ import org.junit.Test;
 
 import br.univel.cliente.TelaCliente;
 
+// gridBagiLayout
 public class TesteClinte {
 
-	@Test
-	public void testPreencheTabela() {
-		TelaCliente tCliente = new TelaCliente();
-		File arquivo = new File("C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml");
-
-	}
-
-	/*
-	 * @Test public void testGravaXML() { TelaCliente tCliente = new
-	 * TelaCliente(); String xml =
-	 * "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml"; File
-	 * arquivo = new File(xml); tCliente.GravaXML(arquivo); //assertFalse("D");
-	 * }
-	 */
+	// TelaCliente tCliente = new TelaCliente();
 
 	@Test
 	public void testLerXML() {
 		TelaCliente tCliente = new TelaCliente();
-		String xml = "C:\\Users\\Eliel\\workspace\\Trabalho154188\\listaCliente.xml";
+		String xml = "listaCliente.xml";
 		File arquivo = new File(xml);
-		assertFalse("O arquivo esta vazio!", xml.length() == 0);
+		assertFalse("O arquivo esta vazio!", arquivo.length() == 0);
+	}
+
+	/*
+	 * @Test public void testGravaXML() { TelaCliente tCliente = new
+	 * TelaCliente(); String xml = "listaCliente.xml"; assertFalse(
+	 * "O arquivo esta vazio!", xml.length() == 0); }
+	 */
+
+	@Test
+	public void testLerArquivoSerializable() {
+		String dat = "listaCliente.dat";
+		assertFalse("O arquivo esta vazio!", dat.length() == 0);
 	}
 
 	@Test

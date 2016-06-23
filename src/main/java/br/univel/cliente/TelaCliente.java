@@ -257,7 +257,7 @@ public class TelaCliente extends JFrame {
 
 		ClienteModel model = new ClienteModel(listaCliente);
 		table.setModel(model);
-		// System.out.println(listaCliente);
+		System.out.println(listaCliente);
 
 	}
 
@@ -285,7 +285,7 @@ public class TelaCliente extends JFrame {
 			clienteList.setCliente(listaCliente);
 			System.out.println((clienteList));
 			m.marshal(clienteList, arq);
-			// System.out.println((listaCliente));
+			//System.out.println((listaCliente));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -319,6 +319,7 @@ public class TelaCliente extends JFrame {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(listaCliente);
+			System.out.println(listaCliente);
 
 			oos.close();
 
