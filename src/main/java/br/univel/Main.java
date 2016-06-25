@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;
 
 public class Main extends JFrame {
 
-	public static Conexao conexao;
+	public static ConexaoBD conexao;
 
 	private static final long serialVersionUID = -2638554920016934872L;
 
@@ -45,7 +45,7 @@ public class Main extends JFrame {
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				conexao = new Conexao();
+				conexao = new ConexaoBD();
 				try {
 					conexao.abrirConexao();
 				} catch (SQLException e) {
