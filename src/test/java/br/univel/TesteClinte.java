@@ -22,25 +22,19 @@ public class TesteClinte {
 	}
 
 	/*
-	 * @Test public void testGravaXML() { TelaCliente tCliente = new
+	 * @Test public void testLista() { TelaCliente tCliente = new
 	 * TelaCliente(); String xml = "listaCliente.xml"; assertFalse(
-	 * "O arquivo esta vazio!", xml.length() == 0); }
+	 * "A lista esta vazio!", xml.length() == 0); }
 	 */
 
 	@Test
 	public void testLerArquivoSerializable() {
 		String dat = "listaCliente.dat";
-		assertFalse("O arquivo esta vazio!", dat.length() == 0);
+		assertTrue("O arquivo esta vazio!", dat.length() == 0);
 	}
 
 	@Test
-	public void testGravarSerializacao() {
+	public void testValidaLista() {
 		fail("Not yet implemented");
 	}
-
-	@Test
-	public void testLerSerializacao() {
-		fail("Not yet implemented");
-	}
-
 }

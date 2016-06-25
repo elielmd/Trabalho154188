@@ -285,7 +285,7 @@ public class TelaCliente extends JFrame {
 			clienteList.setCliente(listaCliente);
 			System.out.println((clienteList));
 			m.marshal(clienteList, arq);
-			//System.out.println((listaCliente));
+			// System.out.println((listaCliente));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -340,6 +340,8 @@ public class TelaCliente extends JFrame {
 
 			listaCliente = (List<Cliente>) ois.readObject();
 			System.out.println(listaCliente);
+			ClienteModel model = new ClienteModel(listaCliente);
+			table.setModel(model);
 
 			ois.close();
 		} catch (Exception ex) {

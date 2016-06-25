@@ -1,53 +1,61 @@
 package br.univel;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.EventQueue;
+import java.sql.SQLException;
 
-import br.univel.cliente.Cliente;
-import br.univel.cliente.ClienteParser;
-import br.univel.produto.Produto;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
-public class Main {
-	
-	private static List<Produto> listaProduto = new ArrayList<Produto>();
-	private static List<Cliente> listaCliente = new ArrayList<Cliente>();
-	
-	public static void lerCliente(){
-		//ArquivoReader arquivo = new ArquivoReader();
-		//arquivo.lerArquivo(null).forEach(System.out::println);
-	
-		LerArquivoTXT reader = new LerArquivoTXT();
-		List<String> lista = reader.lerArquivo("listaCliente.txt");
+public class Main extends JFrame {
 
-		/*ProdutoParser parserProduto = new ProdutoParser();
-		java.util.List<Produto> listaPrd = parserProduto.getProduto(lista);*/
+	public static Conexao conexao;
 
-		ClienteParser parserCliente = new ClienteParser();
-		listaCliente = parserCliente.getCliente(lista);
+	private static final long serialVersionUID = -2638554920016934872L;
 
-	/*	listaPrd.forEach(e -> {
-			System.out.println("id.......: " + e.getId());
-			System.out.println("Descricao: " + e.getDescricao());
-			System.out.println("Preco....: " + e.getPreco());
-		}); */
-		
-		listaCliente.forEach(e -> {
-			System.out.println("id.........: " + e.getId());
-			System.out.println("Nome.......: " + e.getNome());
-			System.out.println("Endereco...: " + e.getEndereco());
-			System.out.println("Complemento: " + e.getComplemento());
-			System.out.println("Bairro.....: " + e.getBairro());
-			System.out.println("Cidade.....: " + e.getCidade());
-			System.out.println("Estado.....: " + e.getEstado());
-			System.out.println("Cep........: " + e.getCep());
-			System.out.println("Telefone...: " + e.getTelefone());
-			System.out.println("Celular....: " + e.getCelular());
-			System.out.println("");
-		});
-		
+	public Main() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 700, 450);
+		setTitle("AgroMaster");
+
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+
+		JMenu mnCadastrar = new JMenu("Menu");
+		menuBar.add(mnCadastrar);
+
+		JMenuItem mntmCadastrar = new JMenuItem("Cliente");
+		mnCadastrar.add(mntmCadastrar);
+
+		JMenuItem mntmNewMenuItem = new JMenuItem("Produto");
+		mnCadastrar.add(mntmNewMenuItem);
+
+		JMenuItem mntmVenda = new JMenuItem("Venda");
+		mnCadastrar.add(mntmVenda);
+		/*
+		 * contentPane = new JPanel(); contentPane.setBackground(new Color(153,
+		 * 255, 153)); contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		 * contentPane.setLayout(new BorderLayout(0, 0));
+		 * setContentPane(contentPane);
+		 */
 	}
-	
-	public static void main(String[] args) {		
-		lerCliente();
+
+	public static void main(String[] args) {
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				conexao = new Conexao();
+				try {
+					conexao.abrirConexao();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Main principal = new Main();
+				principal.setLocationRelativeTo(null); 
+				principal.setVisible(true); 
+			}
+		});
 	}
 }
