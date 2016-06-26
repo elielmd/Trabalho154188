@@ -4,8 +4,8 @@ import java.io.File;
 
 public interface ExportaXML<T> {
 
-	public boolean ExportarXml(T t, File arq);
+	public boolean ExportarXml(T xml, File arq);
 
-	public T ImportarXml(T t, File arq);
+	public T ImportarXml(T xml, File arq);
 
 }
