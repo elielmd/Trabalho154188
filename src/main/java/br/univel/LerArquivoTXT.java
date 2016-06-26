@@ -27,9 +27,4 @@ public class LerArquivoTXT {
 		}
 		return lista;
 	}
-	
-	//public static void main(String[] args) {
-	//	ArquivoReader arquivo = new ArquivoReader();
-	//	arquivo.lerArquivo(null).forEach(System.out::println);
-	//}
 }

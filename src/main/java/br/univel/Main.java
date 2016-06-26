@@ -1,6 +1,8 @@
 package br.univel;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
@@ -25,14 +27,28 @@ public class Main extends JFrame {
 		JMenu mnCadastrar = new JMenu("Menu");
 		menuBar.add(mnCadastrar);
 
-		JMenuItem mntmCadastrar = new JMenuItem("Cliente");
-		mnCadastrar.add(mntmCadastrar);
+		JMenuItem mntmCliente = new JMenuItem("Cliente");
+		mnCadastrar.add(mntmCliente);
 
-		JMenuItem mntmNewMenuItem = new JMenuItem("Produto");
-		mnCadastrar.add(mntmNewMenuItem);
+		JMenuItem mntmProduto = new JMenuItem("Produto");
+		mnCadastrar.add(mntmProduto);
 
 		JMenuItem mntmVenda = new JMenuItem("Venda");
 		mnCadastrar.add(mntmVenda);
+
+		mntmCliente.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("TESTE - TELA CLIENTE");
+
+				TelaCliente OpCliente = new TelaCliente();
+				OpCliente.setSize(900, 500);
+				OpCliente.setLocationRelativeTo(null);
+				OpCliente.setVisible(true);
+			}
+		});
+
 		/*
 		 * contentPane = new JPanel(); contentPane.setBackground(new Color(153,
 		 * 255, 153)); contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,8 +69,8 @@ public class Main extends JFrame {
 					e.printStackTrace();
 				}
 				Main principal = new Main();
-				principal.setLocationRelativeTo(null); 
-				principal.setVisible(true); 
+				principal.setLocationRelativeTo(null);
+				principal.setVisible(true);
 			}
 		});
 	}

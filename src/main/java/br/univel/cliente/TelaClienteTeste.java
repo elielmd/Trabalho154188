@@ -32,7 +32,7 @@ import br.univel.ClienteListWrapper;
 import br.univel.LerArquivoTXT;
 
 /* corrigindo erro do git */
-public class TelaCliente extends JFrame {
+public class TelaClienteTeste extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -46,7 +46,7 @@ public class TelaCliente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCliente frame = new TelaCliente();
+					TelaClienteTeste frame = new TelaClienteTeste();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +58,7 @@ public class TelaCliente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaCliente() {
+	public TelaClienteTeste() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 300);
 		contentPane = new JPanel();

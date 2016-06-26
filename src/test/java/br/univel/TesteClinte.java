@@ -6,7 +6,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import br.univel.cliente.TelaCliente;
+import br.univel.cliente.TelaClienteTeste;
 
 // gridBagiLayout
 public class TesteClinte {
@@ -15,7 +15,7 @@ public class TesteClinte {
 
 	@Test
 	public void testLerXML() {
-		TelaCliente tCliente = new TelaCliente();
+		TelaClienteTeste tCliente = new TelaClienteTeste();
 		String xml = "listaCliente.xml";
 		File arquivo = new File(xml);
 		assertFalse("O arquivo esta vazio!", arquivo.length() == 0);

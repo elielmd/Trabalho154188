@@ -16,8 +16,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JTable;
 
-public class Teste extends JFrame {
+public class MenuOpcoes extends JFrame {
 	public JLabel lblTitulo;
 	public JButton btnImportarTXT;
 	public JButton bntInserir;
@@ -26,8 +29,10 @@ public class Teste extends JFrame {
 	public JButton btnImportarXML;
 	public JButton btnExportarXML;
 	public JButton btnSair;
+	private JScrollPane scrollPane;
+	JTable table;
 
-	public Teste() {
+	public MenuOpcoes() {
 		setTitle("Teste");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -70,7 +75,7 @@ public class Teste extends JFrame {
 		btnImportarTXT.setForeground(new Color(0, 0, 0));
 		btnImportarTXT.setFont(new Font("Times New Roman", Font.BOLD, 12));
 
-		btnSair = new JButton("Sair");
+		btnSair = new JButton("Voltar");
 		btnSair.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
 		btnSair.setForeground(new Color(0, 0, 0));
 		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 12));
@@ -79,58 +84,71 @@ public class Teste extends JFrame {
 				dispose();
 			}
 		});
+
+		scrollPane = new JScrollPane();
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
-				.createSequentialGroup().addGroup(groupLayout
-						.createParallelGroup(
-								Alignment.LEADING)
-						.addGroup(
-								groupLayout.createSequentialGroup().addGap(4)
-										.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 100,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 100,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 110,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnImportarXML, GroupLayout.PREFERRED_SIZE, 100, Short.MAX_VALUE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnExportarXML, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE))
-						.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 682, GroupLayout.PREFERRED_SIZE))
-				.addContainerGap())
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap(549, Short.MAX_VALUE)
-						.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE).addGap(24)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(6).addComponent(lblTitulo).addGap(26)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnImportarXML).addComponent(btnExportarXML).addComponent(btnImportarTXT))
-						.addGap(270).addComponent(btnSair).addContainerGap()));
-		groupLayout.linkSize(SwingConstants.VERTICAL,
-				new Component[] { btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair });
-		groupLayout.linkSize(SwingConstants.HORIZONTAL,
-				new Component[] { btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair });
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap(571, Short.MAX_VALUE)
+							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(4)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnImportarXML, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnExportarXML, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
+									.addGap(40))))
+						.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 880, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(6)
+					.addComponent(lblTitulo)
+					.addGap(26)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnImportarXML)
+						.addComponent(btnExportarXML)
+						.addComponent(btnImportarTXT))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
+					.addGap(8)
+					.addComponent(btnSair)
+					.addContainerGap())
+		);
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
+
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		getContentPane().setLayout(groupLayout);
 
 		JPanel jp = new JPanel();
 		jp.setLayout(new BorderLayout());
-		jp.setSize(500, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 450);
-
 	}
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 
-				Teste principal = new Teste();
+				MenuOpcoes principal = new MenuOpcoes();
 				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}
