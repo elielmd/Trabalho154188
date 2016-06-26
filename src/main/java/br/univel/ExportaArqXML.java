@@ -31,9 +31,9 @@ public class ExportaArqXML<T> implements ExportaXML<T> {
 			marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			marshaller.marshal(t, new StreamResult(out));
 
-			String ArqXml = out.toString();
+			String arqXml = out.toString();
 			FileWriter fw = new FileWriter(arq);
-			fw.write(ArqXml);
+			fw.write(arqXml);
 			fw.close();
 			resultado = true;
 
@@ -52,7 +52,7 @@ public class ExportaArqXML<T> implements ExportaXML<T> {
 	@Override
 	public T ImportarXml(T t, File arq) {
 
-		String ArqXml = null;
+		String arqXml = null;
 
 		try {
 			FileReader fr = new FileReader(arq);
@@ -66,11 +66,11 @@ public class ExportaArqXML<T> implements ExportaXML<T> {
 
 			}
 
-			ArqXml = sb.toString();
+			arqXml = sb.toString();
 			br.close();
 			fr.close();
 
-			StringReader st = new StringReader(ArqXml);
+			StringReader st = new StringReader(arqXml);
 
 			JAXBContext context = JAXBContext.newInstance(t.getClass());
 			Unmarshaller unmarshaller = context.createUnmarshaller();

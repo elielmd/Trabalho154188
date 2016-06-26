@@ -28,6 +28,8 @@ public class MenuOpcoes extends JFrame {
 	public JButton btnExcluir;
 	public JButton btnImportarXML;
 	public JButton btnExportarXML;
+	public JButton btnImportarSER;
+	public JButton btnExportarSER;
 	public JButton btnSair;
 	private JScrollPane scrollPane;
 	JTable table;
@@ -44,11 +46,6 @@ public class MenuOpcoes extends JFrame {
 		bntInserir.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
 		bntInserir.setForeground(new Color(0, 0, 0));
 		bntInserir.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		bntInserir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
 
 		btnAlterar = new JButton("Alterar");
 		btnAlterar.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
@@ -74,6 +71,16 @@ public class MenuOpcoes extends JFrame {
 		btnImportarTXT.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
 		btnImportarTXT.setForeground(new Color(0, 0, 0));
 		btnImportarTXT.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		btnImportarSER = new JButton("IS");
+		btnImportarSER.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
+		btnImportarSER.setForeground(new Color(0, 0, 0));
+		btnImportarSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		btnExportarSER = new JButton("ES");
+		btnExportarSER.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
+		btnExportarSER.setForeground(new Color(0, 0, 0));
+		btnExportarSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
 
 		btnSair = new JButton("Voltar");
 		btnSair.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
@@ -86,32 +93,41 @@ public class MenuOpcoes extends JFrame {
 		});
 
 		scrollPane = new JScrollPane();
+		
+		JButton btnImportaSER = new JButton("Imp SER");
+		btnImportaSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		JButton btnExportaSER = new JButton("Exp SER");
+		btnExportaSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE))
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addContainerGap(571, Short.MAX_VALUE)
-							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addGap(4)
-							.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnImportarXML, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnExportarXML, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
-							.addGap(202))
-						.addComponent(lblTitulo, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 880, GroupLayout.PREFERRED_SIZE))
+					.addGap(4)
+					.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnImportarXML, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnExportarXML, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnImportaSER, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnExportaSER, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addGap(10))
+				.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(777, Short.MAX_VALUE)
+					.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -126,15 +142,17 @@ public class MenuOpcoes extends JFrame {
 						.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnImportarXML)
 						.addComponent(btnExportarXML)
-						.addComponent(btnImportarTXT))
+						.addComponent(btnImportarTXT)
+						.addComponent(btnImportaSER, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnExportaSER))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
-					.addGap(8)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnSair)
-					.addContainerGap())
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
-		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnSair, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnSair, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT});
 
 		table = new JTable();
 		scrollPane.setViewportView(table);

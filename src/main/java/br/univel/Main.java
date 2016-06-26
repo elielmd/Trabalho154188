@@ -53,7 +53,7 @@ public class Main extends JFrame {
 				System.out.println("TESTE - TELA CLIENTE");
 
 				TelaCliente OpCliente = new TelaCliente();
-				OpCliente.setSize(900, 500);
+				OpCliente.setSize(910, 500);
 				OpCliente.setLocationRelativeTo(null);
 				OpCliente.setVisible(true);
 

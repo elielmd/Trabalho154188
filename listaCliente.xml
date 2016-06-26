@@ -1,27 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Clientes>
-    <cliente>
-        <id>1</id>
-        <nome>Eliel Marques Dourado</nome>
-        <endereco>Rua Grecia 1046</endereco>
-        <complemento>Casa de tijolo</complemento>
-        <bairro>Jardim Italia</bairro>
-        <cidade>Cascavel</cidade>
-        <estado>Parana</estado>
-        <cep>85818330</cep>
-        <telefone>4533282906</telefone>
-        <celular>4598298779</celular>
-    </cliente>
-    <cliente>
-        <id>2</id>
-        <nome>Carlos Luiz Louterio</nome>
-        <endereco>Rua Guajuvira</endereco>
-        <complemento>Casa verde</complemento>
-        <bairro>Sao Gabriel</bairro>
-        <cidade>Cascavel</cidade>
-        <estado>Parana</estado>
-        <cep>85790000</cep>
-        <telefone>4533282906</telefone>
-        <celular>4598119045</celular>
-    </cliente>
-</Clientes>
+<clientes/>
