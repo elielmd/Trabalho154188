@@ -30,7 +30,7 @@ public class Produto implements Serializable{
 	private String descricao;
 	
 	@XmlElement(name = "preco")
-	@Coluna(nome="preco")
+	@Coluna(nome="pdpreco")
 	private BigDecimal preco;
 
 	public Produto(int id, String descricao, BigDecimal preco) {
@@ -62,6 +62,10 @@ public class Produto implements Serializable{
 
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
+	}
+	
+	public Produto() {
+		this(0, null, null);
 	}
 
 }

@@ -14,7 +14,11 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 
-public class NewCliente extends JFrame {
+public class ClienteNovo extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 772046454694497130L;
 	public GroupLayout groupLayout;
 	public JButton btnSalvar;
 	public JButton btnCancelar;
@@ -30,7 +34,7 @@ public class NewCliente extends JFrame {
 	private JTextField textCidade;
 	private JTextField textEstado;
 
-	public NewCliente() {
+	public ClienteNovo() {
 		setBounds(100, 100, 445, 380);
 		setTitle("Cadastro de Cliente");
 
@@ -237,7 +241,7 @@ public class NewCliente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 
-				NewCliente principal = new NewCliente();
+				ClienteNovo principal = new ClienteNovo();
 				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}

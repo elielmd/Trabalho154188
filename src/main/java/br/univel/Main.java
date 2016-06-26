@@ -1,23 +1,23 @@
 package br.univel;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Panel;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 
-import br.univel.cliente.TelaCliente;
-
-import java.awt.Panel;
-import java.awt.Font;
-import java.awt.SystemColor;
+import br.univel.cliente.ClienteTela;
+import br.univel.produto.ProdutoTela;
 
 public class Main extends JFrame {
 
@@ -55,7 +55,7 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("TESTE - TELA CLIENTE");
 
-				TelaCliente OpCliente = new TelaCliente();
+				ClienteTela OpCliente = new ClienteTela();
 				OpCliente.setSize(910, 500);
 				//OpCliente.setSize(1100, 800);
 				OpCliente.setLocationRelativeTo(null);
@@ -71,6 +71,11 @@ public class Main extends JFrame {
 		JButton btnOpProduto = new JButton("PRODUTOS");
 		btnOpProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ProdutoTela OpProduto = new ProdutoTela();
+				OpProduto.setSize(910, 500);
+				//OpCliente.setSize(1100, 800);
+				OpProduto.setLocationRelativeTo(null);
+				OpProduto.setVisible(true);
 			}
 		});
 		btnOpProduto.setBackground(SystemColor.activeCaption);
@@ -97,7 +102,7 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("TESTE - TELA CLIENTE");
 
-				TelaCliente OpCliente = new TelaCliente();
+				ClienteTela OpCliente = new ClienteTela();
 				OpCliente.setSize(900, 500);
 				OpCliente.setLocationRelativeTo(null);
 				OpCliente.setVisible(true);

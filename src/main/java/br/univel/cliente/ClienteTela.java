@@ -14,7 +14,7 @@ import br.univel.ExportaSerializador;
 import br.univel.LerArquivoTXT;
 import br.univel.MenuOpcoes;
 
-public class TelaCliente extends MenuOpcoes {
+public class ClienteTela extends MenuOpcoes {
 
 	/**
 	 * 
@@ -24,7 +24,7 @@ public class TelaCliente extends MenuOpcoes {
 	private ExportaArqXML<ClienteListWrapper> cliXml = new ExportaArqXML<ClienteListWrapper>();
 	private ExportaSerializador<List<Cliente>> serDat = new ExportaSerializador<List<Cliente>>();
 
-	public TelaCliente() {
+	public ClienteTela() {
 		setAutoRequestFocus(false);
 
 		btnImportarTXT.addActionListener(new ActionListener() {
@@ -94,7 +94,7 @@ public class TelaCliente extends MenuOpcoes {
 		
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
-				NewCliente AltCliente = new NewCliente();		
+				ClienteNovo AltCliente = new ClienteNovo();		
 				AltCliente.setSize(445, 380);
 				AltCliente.setLocationRelativeTo(null); 
 				AltCliente.lblTitulo.setText("Alterar Cliente");
@@ -105,7 +105,7 @@ public class TelaCliente extends MenuOpcoes {
 		
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewCliente NewCliente = new NewCliente();		
+				ClienteNovo NewCliente = new ClienteNovo();		
 				NewCliente.setSize(445, 380);
 				NewCliente.setLocationRelativeTo(null);
 				NewCliente.lblTitulo.setText("Novo Cliente");

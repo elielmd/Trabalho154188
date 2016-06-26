@@ -5,19 +5,19 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name="produtos")
 public class ProdutoListWrapper {
 	
 	
-	private List<Produto> listaProd;
+	private List<Produto> listaProduto;
 
 	@XmlElement(name="produto")
-	public List<Produto> getListaProd() {
-		return listaProd;
+	public List<Produto> getListaProduto() {
+		return listaProduto;
 	}
 
-	public void setListaProd(List<Produto> listaProd) {
-		this.listaProd = listaProd;
+	public void setListaProduto(List<Produto> listaProduto) {
+		this.listaProduto = listaProduto;
 	}
 
 }
