@@ -23,7 +23,7 @@ import javax.swing.JTable;
 public class MenuOpcoes extends JFrame {
 	public JLabel lblTitulo;
 	public JButton btnImportarTXT;
-	public JButton bntInserir;
+	public JButton btnInserir;
 	public JButton btnAlterar;
 	public JButton btnExcluir;
 	public JButton btnImportarXML;
@@ -32,7 +32,7 @@ public class MenuOpcoes extends JFrame {
 	public JButton btnExportarSER;
 	public JButton btnSair;
 	private JScrollPane scrollPane;
-	JTable table;
+	public JTable table;
 
 	public MenuOpcoes() {
 		setTitle("Teste");
@@ -42,10 +42,10 @@ public class MenuOpcoes extends JFrame {
 		lblTitulo.setFont(new Font("Times New Roman", Font.BOLD, 40));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 
-		bntInserir = new JButton("Inserir");
-		bntInserir.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
-		bntInserir.setForeground(new Color(0, 0, 0));
-		bntInserir.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnInserir = new JButton("Inserir");
+		btnInserir.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
+		btnInserir.setForeground(new Color(0, 0, 0));
+		btnInserir.setFont(new Font("Times New Roman", Font.BOLD, 12));
 
 		btnAlterar = new JButton("Alterar");
 		btnAlterar.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
@@ -99,7 +99,7 @@ public class MenuOpcoes extends JFrame {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(4)
-					.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
@@ -132,7 +132,7 @@ public class MenuOpcoes extends JFrame {
 					.addComponent(lblTitulo)
 					.addGap(26)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(bntInserir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnImportarXML)

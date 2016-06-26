@@ -1,11 +1,9 @@
-package br.univel;
+package br.univel.cliente;
 
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import br.univel.cliente.Cliente;
 
 @XmlRootElement(name="clientes")
 public class ClienteListWrapper {

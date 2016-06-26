@@ -28,6 +28,10 @@ public class Cliente implements Serializable {
 	@Coluna(nome = "clEndereco", tamanho = 255)
 	private String endereco;
 
+	@XmlElement(name = "numero")
+	@Coluna(nome = "clNumero", tamanho = 100)
+	private String numero;
+
 	@XmlElement(name = "complemento")
 	@Coluna(nome = "clComplemento", tamanho = 255)
 	private String complemento;
@@ -56,12 +60,13 @@ public class Cliente implements Serializable {
 	@Coluna(nome = "clCelular", tamanho = 15)
 	private String celular;
 
-	public Cliente(int id, String nome, String endereco, String complemento, String bairro, String cidade,
-			String estado, String cep, String telefone, String celular) {
+	public Cliente(int id, String nome, String endereco, String numero, String complemento, String bairro,
+			String cidade, String estado, String cep, String telefone, String celular) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
+		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.cidade = cidade;
@@ -93,6 +98,14 @@ public class Cliente implements Serializable {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
 	public String getComplemento() {
@@ -152,7 +165,7 @@ public class Cliente implements Serializable {
 	}
 
 	public Cliente() {
-		this(0, null, null, null, null, null, null, null, null, null);
+		this(0, null, null, null, null, null, null, null, null, null, null);
 	}
 
 }

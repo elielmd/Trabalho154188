@@ -1,4 +1,4 @@
-package br.univel;
+package br.univel.cliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,9 +9,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import br.univel.cliente.Cliente;
-import br.univel.cliente.ClienteModel;
-import br.univel.cliente.ClienteParser;
+import br.univel.ExportaArqXML;
+import br.univel.ExportaSerializador;
+import br.univel.LerArquivoTXT;
+import br.univel.MenuOpcoes;
 
 public class TelaCliente extends MenuOpcoes {
 
@@ -88,6 +89,27 @@ public class TelaCliente extends MenuOpcoes {
 				table.setModel(modelo);
 				JOptionPane.showMessageDialog(null, "Arquivo importado!");
 
+			}
+		});
+		
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				NewCliente AltCliente = new NewCliente();		
+				AltCliente.setSize(445, 380);
+				AltCliente.setLocationRelativeTo(null); 
+				AltCliente.lblTitulo.setText("Alterar Cliente");
+				AltCliente.setVisible(true);					
+			
+			}
+		});
+		
+		btnInserir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewCliente NewCliente = new NewCliente();		
+				NewCliente.setSize(445, 380);
+				NewCliente.setLocationRelativeTo(null);
+				NewCliente.lblTitulo.setText("Novo Cliente");
+				NewCliente.setVisible(true);					
 			}
 		});
 

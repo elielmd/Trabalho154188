@@ -12,6 +12,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
+import br.univel.cliente.TelaCliente;
+
 import java.awt.Panel;
 import java.awt.Font;
 import java.awt.SystemColor;

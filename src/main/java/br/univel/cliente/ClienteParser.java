@@ -25,19 +25,21 @@ public class ClienteParser {
 
 	private Cliente getCliente(String str) {
 
-		String[] itens 		= str.split(",");
-		int id 				= Integer.parseInt(itens[0]);
-		String nome 		= itens[1].trim();
-		String endereco 	= itens[2].trim();
-		String complemento  = itens[3].trim();
-		String bairro 		= itens[4].trim();
-		String cidade 		= itens[5].trim();
-		String estado 		= itens[6].trim();
-		String cep 			= itens[7];
-		String telefone 	= itens[8].trim();
-		String celular 		= itens[9].trim();
+		String[] itens = str.split(",");
+		int id = Integer.parseInt(itens[0]);
+		String nome = itens[1].trim();
+		String endereco = itens[2].trim();
+		String numero = itens[3].trim();
+		String complemento = itens[4].trim();
+		String bairro = itens[5].trim();
+		String cidade = itens[6].trim();
+		String estado = itens[7].trim();
+		String cep = itens[8].trim();
+		String telefone = itens[9].trim();
+		String celular = itens[10].trim();
 
-		Cliente cliente = new Cliente(id, nome, endereco, complemento, bairro, cidade, estado, cep, telefone, celular);
+		Cliente cliente = new Cliente(id, nome, endereco, numero, complemento, bairro, cidade, estado, cep, telefone,
+				celular);
 
 		return cliente;
 	}
