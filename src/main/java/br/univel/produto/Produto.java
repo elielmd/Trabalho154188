@@ -1,11 +1,36 @@
 package br.univel.produto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Produto {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Tabela;
+
+@XmlRootElement(name = "produto")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Tabela("cad_produto")
+public class Produto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4527915780549634995L;
+	
+	@XmlElement(name = "id")
+	@Coluna(pk = true, nome = "pdId", tamanho = -1)
 	private int id;
+	
+	@XmlElement(name = "descricao")
+	@Coluna(nome = "pdDescricao", tamanho = 100)
 	private String descricao;
+	
+	@XmlElement(name = "preco")
+	@Coluna(nome="preco")
 	private BigDecimal preco;
 
 	public Produto(int id, String descricao, BigDecimal preco) {

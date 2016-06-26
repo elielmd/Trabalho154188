@@ -10,6 +10,7 @@ import java.util.List;
 
 public class LerArquivoTXT {
 
+	@SuppressWarnings("resource")
 	public List<String> lerArquivo(String arquivo) {
 		ArrayList<String> lista = new ArrayList<>();
 		try {

@@ -17,10 +17,13 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
 
 public class MenuOpcoes extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8298859179633697750L;
 	public JLabel lblTitulo;
 	public JButton btnImportarTXT;
 	public JButton btnInserir;

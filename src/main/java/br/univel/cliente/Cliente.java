@@ -10,11 +10,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
 
-//
 @XmlRootElement(name = "cliente")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Tabela("cad_cliente")
 public class Cliente implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6237692593561979606L;
 
 	@XmlElement(name = "id")
 	@Coluna(pk = true, nome = "clId", tamanho = -1)
