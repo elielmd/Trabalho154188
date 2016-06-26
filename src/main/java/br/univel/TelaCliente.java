@@ -53,41 +53,40 @@ public class TelaCliente extends MenuOpcoes {
 			public void actionPerformed(ActionEvent e) {
 				ClienteListWrapper cli = new ClienteListWrapper();
 				cli = cliXml.ImportarXml(cli, new File("listaCliente.xml"));
-
 				lista.clear();
 				lista = cli.getListaCliente();
 				ClienteModel modelo = new ClienteModel(lista);
 				table.setModel(modelo);
+				JOptionPane.showMessageDialog(null, "Arquivo importado!");
 			}
 		});
 
 		btnExportarSER.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "BATATA 1!");
 
-				/*try {
-					System.out.println("BATATA");
+				try {
 					serDat.ExportaSerializable(lista, new File("listaClientes.dat"));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}*/
+				}
+				JOptionPane.showMessageDialog(null, "Arquivo listaClientes.dat exportado!");
 
 			}
 		});
 
 		btnImportarSER.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "BATATA 2!");
-				/*lista.clear();
+
+				lista.clear();
 				try {
-					lista = serDat.ImportaSerializable(new File("listaCliente.dat"));
+					lista = serDat.ImportaSerializable(new File("listaClientes.dat"));
 				} catch (ClassNotFoundException | IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				ClienteModel modelo = new ClienteModel(lista);
-				table.setModel(modelo);*/
+				table.setModel(modelo);
+				JOptionPane.showMessageDialog(null, "Arquivo importado!");
 
 			}
 		});

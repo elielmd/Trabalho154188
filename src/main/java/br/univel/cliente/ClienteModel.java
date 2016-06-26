@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-
 public class ClienteModel extends AbstractTableModel {
 
 	/**
@@ -33,26 +32,26 @@ public class ClienteModel extends AbstractTableModel {
 		Cliente c = lista.get(row);
 
 		switch (col) {
-			case 0:
-				return c.getId();
-			case 1:
-				return c.getNome();
-			case 2:
-				return c.getEndereco();
-			case 3:
-				return c.getComplemento();
-			case 4:
-				return c.getBairro();
-			case 5:
-				return c.getCidade();
-			case 6:
-				return c.getEstado();
-			case 7:
-				return c.getCep();
-			case 8:
-				return c.getTelefone();
-			case 9:
-				return c.getCelular();
+		case 0:
+			return c.getId();
+		case 1:
+			return c.getNome();
+		case 2:
+			return c.getEndereco();
+		case 3:
+			return c.getComplemento();
+		case 4:
+			return c.getBairro();
+		case 5:
+			return c.getCidade();
+		case 6:
+			return c.getEstado();
+		case 7:
+			return c.getCep();
+		case 8:
+			return c.getTelefone();
+		case 9:
+			return c.getCelular();
 		}
 
 		return null;

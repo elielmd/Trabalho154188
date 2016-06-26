@@ -72,12 +72,12 @@ public class MenuOpcoes extends JFrame {
 		btnImportarTXT.setForeground(new Color(0, 0, 0));
 		btnImportarTXT.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
-		btnImportarSER = new JButton("IS");
+		btnImportarSER = new JButton("Imp Ser");
 		btnImportarSER.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
 		btnImportarSER.setForeground(new Color(0, 0, 0));
 		btnImportarSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
-		btnExportarSER = new JButton("ES");
+		btnExportarSER = new JButton("Exp Ser");
 		btnExportarSER.setBackground(UIManager.getColor("ToggleButton.darkShadow"));
 		btnExportarSER.setForeground(new Color(0, 0, 0));
 		btnExportarSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
@@ -94,11 +94,6 @@ public class MenuOpcoes extends JFrame {
 
 		scrollPane = new JScrollPane();
 		
-		JButton btnImportaSER = new JButton("Imp SER");
-		btnImportaSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		
-		JButton btnExportaSER = new JButton("Exp SER");
-		btnExportaSER.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -116,9 +111,9 @@ public class MenuOpcoes extends JFrame {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnImportaSER, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnImportarSER, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnExportaSER, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnExportarSER, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 					.addGap(10))
 				.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -143,8 +138,8 @@ public class MenuOpcoes extends JFrame {
 						.addComponent(btnImportarXML)
 						.addComponent(btnExportarXML)
 						.addComponent(btnImportarTXT)
-						.addComponent(btnImportaSER, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnExportaSER))
+						.addComponent(btnImportarSER, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnExportarSER, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)

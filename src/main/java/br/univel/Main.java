@@ -54,9 +54,9 @@ public class Main extends JFrame {
 
 				TelaCliente OpCliente = new TelaCliente();
 				OpCliente.setSize(910, 500);
+				//OpCliente.setSize(1100, 800);
 				OpCliente.setLocationRelativeTo(null);
 				OpCliente.setVisible(true);
-
 			}
 		});
 		btnOpCliente.setBackground(SystemColor.activeCaption);
