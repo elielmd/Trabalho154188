@@ -1,4 +1,4 @@
-package br.univel.interfaces;
+package br.univel.abs;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

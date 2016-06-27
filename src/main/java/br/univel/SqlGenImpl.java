@@ -4,14 +4,15 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import br.univel.abs.SqlGen;
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
-import br.univel.interfaces.SqlGen;
 
 public class SqlGenImpl extends SqlGen {
 
 	@Override
-	protected String getCreateTable(Connection con, Object obj) {
+	public String getCreateTable(Connection con, Object obj) {
 
 		try {
 
@@ -121,7 +122,7 @@ public class SqlGenImpl extends SqlGen {
 	}
 
 	@Override
-	protected PreparedStatement getSqlInsert(Connection con, Object obj) {
+	public PreparedStatement getSqlInsert(Connection con, Object obj) {
 		Class<? extends Object> cl = obj.getClass();
 
 		StringBuilder sb = new StringBuilder();
@@ -187,7 +188,7 @@ public class SqlGenImpl extends SqlGen {
 	}
 
 	@Override
-	protected PreparedStatement getSqlSelectAll(Connection con, Object obj) {
+	public PreparedStatement getSqlSelectAll(Connection con, Object obj) {
 		PreparedStatement ps = null;
 
 		try {
@@ -220,7 +221,7 @@ public class SqlGenImpl extends SqlGen {
 	}
 
 	@Override
-	protected PreparedStatement getSqlSelectById(Connection con, Object obj) {
+	public PreparedStatement getSqlSelectById(Connection con, Object obj) {
 		PreparedStatement ps = null;
 
 		try {
@@ -273,7 +274,7 @@ public class SqlGenImpl extends SqlGen {
 	}
 
 	@Override
-	protected PreparedStatement getSqlUpdateById(Connection con, Object obj) {
+	public PreparedStatement getSqlUpdateById(Connection con, Object obj) {
 		Class<? extends Object> cl = obj.getClass();
 
 		StringBuilder sb = new StringBuilder();
@@ -336,7 +337,7 @@ public class SqlGenImpl extends SqlGen {
 	}
 
 	@Override
-	protected PreparedStatement getSqlDeleteById(Connection con, Object obj) {
+	public PreparedStatement getSqlDeleteById(Connection con, Object obj) {
 
 		PreparedStatement ps = null;
 		try {

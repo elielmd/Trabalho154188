@@ -15,10 +15,7 @@ import br.univel.anotacoes.Tabela;
 @Tabela("cad_cliente")
 public class Cliente implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6237692593561979606L;
+	private static final long serialVersionUID = 1L;
 
 	@XmlElement(name = "id")
 	@Coluna(pk = true, nome = "clId", tamanho = -1)

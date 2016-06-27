@@ -21,9 +21,11 @@ import br.univel.produto.ProdutoTela;
 
 public class Main extends JFrame {
 
-	public static ConexaoBD conexao;
-
-	private static final long serialVersionUID = -2638554920016934872L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 640393652128333579L;
+	public static ConexaoBD conectaBanco;
 
 	public Main() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -121,13 +123,14 @@ public class Main extends JFrame {
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				conexao = new ConexaoBD();
+				conectaBanco = new ConexaoBD();
 				try {
-					conexao.abrirConexao();
+					conectaBanco.abrirConexao();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				System.out.println(conectaBanco);
 				Main principal = new Main();
 				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
