@@ -50,7 +50,7 @@ public class ProdutoNovo extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				conPro.salvar(pro);
+				conPro.atualizar(pro);
 				dispose();
 			}
 		});

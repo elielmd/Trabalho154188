@@ -1,4 +1,4 @@
-package br.univel.relatorios;
+package br.univel.cliente;
 
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +11,7 @@ import br.univel.cliente.Cliente;
 public class ClienteJRDataSource implements JRDataSource {
 	@SuppressWarnings("unused")
 	private List<Cliente> lista;
-	private Cliente selecionado;
+	private Cliente atr;
 	private Iterator<Cliente> iterator;
 	
 	
@@ -24,11 +24,11 @@ public class ClienteJRDataSource implements JRDataSource {
 	@Override
 	public Object getFieldValue(JRField arg0) throws JRException {
 		if("id".equals(arg0.getName())){
-			return selecionado.getId();			
+			return atr.getId();			
 		}else if("nome".equals(arg0.getName())){		
-			return selecionado.getNome();
+			return atr.getNome();
 		}else if("telefone".equals(arg0.getName())){
-			return selecionado.getTelefone();			
+			return atr.getTelefone();			
 		}
 		return "Undeifined";
 	}
@@ -36,7 +36,7 @@ public class ClienteJRDataSource implements JRDataSource {
 	@Override
 	public boolean next() throws JRException {
 		if(iterator.hasNext()){
-			selecionado = iterator.next();
+			atr = iterator.next();
 			return true;			
 		}
 		

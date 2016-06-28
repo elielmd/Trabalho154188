@@ -39,6 +39,15 @@ public class ClienteNovo extends JFrame {
 	private static JTextField textCidade;
 	private static JTextField textEstado;
 	private static JTextField textCodigo;
+	private boolean opcao = false;
+	
+	public boolean opcaoCrud() {
+		return opcao;
+	}
+
+	public void setOpcaoCrud(boolean opcao) {
+		this.opcao = opcao;
+	}
 
 	public ClienteNovo() {
 		setBounds(100, 100, 445, 370);
@@ -62,6 +71,7 @@ public class ClienteNovo extends JFrame {
 				cli.setCep(textcep.getText());
 				cli.setCelular(textcelular.getText());
 				cli.setTelefone(texttelefone.getText());
+				
 
 				/*
 				 * cli.setId(1); cli.setNome("BATATA");
@@ -83,6 +93,11 @@ public class ClienteNovo extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+
+//				conCli.atualizar(cli);
+//				conCli.salvar(cli);					
+
 				
 				 conCli.salvar(cli);	
 				/*if (opcao = "alterar") {

@@ -8,8 +8,10 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import br.univel.ConexaoBD;
@@ -17,6 +19,10 @@ import br.univel.ExportaArqXML;
 import br.univel.ExportaSerializador;
 import br.univel.LerArquivoTXT;
 import br.univel.MenuOpcoes;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ClienteTela extends MenuOpcoes {
 
@@ -44,6 +50,17 @@ public class ClienteTela extends MenuOpcoes {
 				lista = cliCon.listarTodos();
 				ClienteModel modelo = new ClienteModel(lista);
 				table.setModel(modelo);
+			}
+		});
+
+		btnRelatorioCli.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					relatorioCliente();
+				} catch (JRException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
@@ -137,10 +154,10 @@ public class ClienteTela extends MenuOpcoes {
 
 			}
 		});
-		
+
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (lista.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum cliente para ser alterado.");
 				} else {
@@ -151,6 +168,7 @@ public class ClienteTela extends MenuOpcoes {
 						AltCliente.setSize(445, 380);
 						AltCliente.setLocationRelativeTo(null);
 						AltCliente.lblTitulo.setText("Alterar Cliente");
+						AltCliente.setOpcaoCrud(false);
 						AltCliente.setVisible(true);
 						ClienteNovo.buscaDados((int) table.getModel().getValueAt(table.getSelectedRow(), 0));
 					}
@@ -191,5 +209,29 @@ public class ClienteTela extends MenuOpcoes {
 				}
 			}
 		});
+	}
+
+	protected void relatorioCliente() throws JRException {
+		String arq = "RelaCli_A4.jrxml";
+
+		ClienteDao cliCon = new ClienteDao();
+		try {
+			cliCon.setCon(new ConexaoBD().abrirConexao());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		ClienteJRDataSource cRelatorio = new ClienteJRDataSource(cliCon.listarTodos());
+		System.out.println(cRelatorio);
+		HashMap treta = new HashMap();
+		JasperPrint jp;
+		jp = JasperFillManager.fillReport(arq, treta, cRelatorio);
+
+		JasperViewer jasperViewer = new JasperViewer(jp);
+		jasperViewer.setBounds(50, 50, 320, 240);
+		jasperViewer.setLocationRelativeTo(null);
+		jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		jasperViewer.setVisible(true);
+
 	}
 }

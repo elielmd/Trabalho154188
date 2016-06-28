@@ -16,8 +16,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
+import br.univel.cliente.ClienteDao;
+import br.univel.cliente.ClienteJRDataSource;
 import br.univel.cliente.ClienteTela;
 import br.univel.produto.ProdutoTela;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Main extends JFrame {
 
@@ -74,7 +80,7 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ProdutoTela OpProduto = new ProdutoTela();
 				OpProduto.setSize(910, 500);
-				//OpCliente.setSize(1100, 800);
+				// OpCliente.setSize(1100, 800);
 				OpProduto.setLocationRelativeTo(null);
 				OpProduto.setVisible(true);
 			}

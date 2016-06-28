@@ -34,6 +34,7 @@ public class MenuOpcoes extends JFrame {
 	public JButton btnImportarSER;
 	public JButton btnExportarSER;
 	public JButton btnAtualizaTabela;
+	public JButton btnRelatorioCli;
 	public JButton btnSair;
 	private JScrollPane scrollPane;
 	public JTable table;
@@ -99,6 +100,7 @@ public class MenuOpcoes extends JFrame {
 		scrollPane = new JScrollPane();
 		
 		btnAtualizaTabela = new JButton("A");
+		btnRelatorioCli = new JButton("Relatorio");
 
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -129,7 +131,9 @@ public class MenuOpcoes extends JFrame {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(btnAtualizaTabela)
-					.addPreferredGap(ComponentPlacement.RELATED, 723, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnRelatorioCli)
+					.addPreferredGap(ComponentPlacement.RELATED, 645, Short.MAX_VALUE)
 					.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
@@ -153,11 +157,12 @@ public class MenuOpcoes extends JFrame {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnSair)
-						.addComponent(btnAtualizaTabela))
+						.addComponent(btnAtualizaTabela)
+						.addComponent(btnRelatorioCli))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
-		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnSair, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnSair, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT});
 
 		table = new JTable();
 		scrollPane.setViewportView(table);

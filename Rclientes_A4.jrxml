@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2016-06-28T02:47:03 -->
+<!-- 2016-06-28T12:59:17 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rclientes_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f16e790a-343b-4609-947e-d7c9c80d8652">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString>
@@ -16,10 +16,28 @@
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="3ec25b61-4bcc-46a1-81a0-96bad64c1195"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="2" width="100" height="30" uuid="b9f9322e-9285-427c-8eb6-388b0523e328"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="44" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="0" y="0" width="100" height="30" uuid="2d93be5d-5957-4ac7-aeb5-5f8d8600fe4c"/>
+				<textFieldExpression><![CDATA[$F{clId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="100" height="30" uuid="ff0e258c-1a7f-4afd-a28d-48a3fdc859ab"/>
+				<textFieldExpression><![CDATA[$F{clNome}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
