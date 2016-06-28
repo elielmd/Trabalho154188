@@ -37,7 +37,7 @@ public class ClienteTela extends MenuOpcoes {
 			e.printStackTrace();
 		}
 
-		cliCon.criarTabela(new Cliente());
+		//cliCon.criarTabela(new Cliente());
 
 		setAutoRequestFocus(false);
 

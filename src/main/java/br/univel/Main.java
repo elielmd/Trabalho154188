@@ -59,7 +59,6 @@ public class Main extends JFrame {
 
 				ClienteTela OpCliente = new ClienteTela();
 				OpCliente.setSize(910, 500);
-				//OpCliente.setSize(1100, 800);
 				OpCliente.setLocationRelativeTo(null);
 				OpCliente.setVisible(true);
 			}
