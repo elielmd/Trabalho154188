@@ -33,6 +33,7 @@ public class MenuOpcoes extends JFrame {
 	public JButton btnExportarXML;
 	public JButton btnImportarSER;
 	public JButton btnExportarSER;
+	public JButton btnAtualizaTabela;
 	public JButton btnSair;
 	private JScrollPane scrollPane;
 	public JTable table;
@@ -97,9 +98,11 @@ public class MenuOpcoes extends JFrame {
 
 		scrollPane = new JScrollPane();
 		
+		btnAtualizaTabela = new JButton("A");
+
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(4)
 					.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
@@ -123,8 +126,10 @@ public class MenuOpcoes extends JFrame {
 					.addContainerGap()
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
 					.addContainerGap())
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(777, Short.MAX_VALUE)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnAtualizaTabela)
+					.addPreferredGap(ComponentPlacement.RELATED, 723, Short.MAX_VALUE)
 					.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
@@ -146,11 +151,13 @@ public class MenuOpcoes extends JFrame {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnSair)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnSair)
+						.addComponent(btnAtualizaTabela))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnSair, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT});
-		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnSair, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT});
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair});
 
 		table = new JTable();
 		scrollPane.setViewportView(table);

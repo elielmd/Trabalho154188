@@ -2,6 +2,8 @@ package br.univel.cliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -37,7 +39,24 @@ public class ClienteTela extends MenuOpcoes {
 			e.printStackTrace();
 		}
 
-		//cliCon.criarTabela(new Cliente());
+		btnAtualizaTabela.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lista = cliCon.listarTodos();
+				ClienteModel modelo = new ClienteModel(lista);
+				table.setModel(modelo);
+			}
+		});
+
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table.getModel().getValueAt(table.getSelectedRow(), 1);
+				int cod = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
+				cliCon.buscar(cod);
+			}
+		});
+
+		// cliCon.criarTabela(new Cliente());
 
 		setAutoRequestFocus(false);
 
@@ -48,7 +67,13 @@ public class ClienteTela extends MenuOpcoes {
 				ClienteParser parserCliente = new ClienteParser();
 
 				lista = parserCliente.getCliente(arqTxt.lerArquivo("listaCliente.txt"));
-
+				for (Cliente cli : lista) {
+					if (cliCon.buscar(cli.getId()).getId() > 0) {
+						cliCon.atualizar(cli);
+					} else {
+						cliCon.salvar(cli);
+					}
+				}
 				ClienteModel modelo = new ClienteModel(lista);
 				table.setModel(modelo);
 			}
@@ -70,6 +95,13 @@ public class ClienteTela extends MenuOpcoes {
 				cli = cliXml.ImportarXml(cli, new File("listaCliente.xml"));
 				lista.clear();
 				lista = cli.getListaCliente();
+				for (Cliente cliente : lista) {
+					if (cliCon.buscar(cliente.getId()).getId() > 0) {
+						cliCon.atualizar(cliente);
+					} else {
+						cliCon.salvar(cliente);
+					}
+				}
 				ClienteModel modelo = new ClienteModel(lista);
 				table.setModel(modelo);
 				JOptionPane.showMessageDialog(null, "Arquivo importado!");
@@ -108,12 +140,20 @@ public class ClienteTela extends MenuOpcoes {
 
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteNovo AltCliente = new ClienteNovo();
-				AltCliente.setSize(445, 380);
-				AltCliente.setLocationRelativeTo(null);
-				AltCliente.lblTitulo.setText("Alterar Cliente");
-				AltCliente.setVisible(true);
-
+				if (lista.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhum cliente para ser alterado.");
+				} else {
+					if (table.getSelectedRow() == -1) {
+						JOptionPane.showMessageDialog(null, "Selecione um cliente.");
+					} else {
+						ClienteNovo AltCliente = new ClienteNovo();
+						AltCliente.setSize(445, 380);
+						AltCliente.setLocationRelativeTo(null);
+						AltCliente.lblTitulo.setText("Alterar Cliente");
+						AltCliente.setVisible(true);
+						ClienteNovo.buscaDados((int) table.getModel().getValueAt(table.getSelectedRow(), 0));
+					}
+				}
 			}
 		});
 
@@ -127,5 +167,25 @@ public class ClienteTela extends MenuOpcoes {
 			}
 		});
 
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (lista.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhum cliente selecionado!");
+				} else {
+					if (table.getSelectedRow() == -1) {
+						JOptionPane.showMessageDialog(null, "Selecione um cliente!");
+					} else {
+						int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o cliente ?", "excluir",
+								JOptionPane.YES_NO_OPTION);
+						if (resposta == 0) {
+							int codigo = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
+							cliCon.excluir(codigo);
+							ClienteModel modelo = new ClienteModel(lista);
+							table.setModel(modelo);
+						}
+					}
+				}
+			}
+		});
 	}
 }
