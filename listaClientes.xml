@@ -27,6 +27,19 @@
         <celular>4598119045</celular>
     </cliente>
     <cliente>
+        <id>8</id>
+        <nome>asdas</nome>
+        <endereco>45das45</endereco>
+        <numero>d45as451</numero>
+        <complemento>4da5s45</complemento>
+        <bairro>d5as4d5</bairro>
+        <cidade>d1as54d</cidade>
+        <estado>4w15d1asd4</estado>
+        <cep>da5s45</cep>
+        <telefone>d12as15d</telefone>
+        <celular>d5sa</celular>
+    </cliente>
+    <cliente>
         <id>55</id>
         <nome>Eliel Marques Dourado</nome>
         <endereco>Rua Grecie</endereco>

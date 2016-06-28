@@ -66,7 +66,7 @@ public class ClienteTela extends MenuOpcoes {
 				LerArquivoTXT arqTxt = new LerArquivoTXT();
 				ClienteParser parserCliente = new ClienteParser();
 
-				lista = parserCliente.getCliente(arqTxt.lerArquivo("listaCliente.txt"));
+				lista = parserCliente.getCliente(arqTxt.lerArquivo("listaClientes.txt"));
 				for (Cliente cli : lista) {
 					if (cliCon.buscar(cli.getId()).getId() > 0) {
 						cliCon.atualizar(cli);
@@ -84,7 +84,7 @@ public class ClienteTela extends MenuOpcoes {
 
 				ClienteListWrapper cli = new ClienteListWrapper();
 				cli.setListaCliente(lista);
-				cliXml.ExportarXml(cli, new File("listaCliente.xml"));
+				cliXml.ExportarXml(cli, new File("listaClientes.xml"));
 				JOptionPane.showMessageDialog(null, "Arquivo exportado!");
 			}
 		});
@@ -92,7 +92,7 @@ public class ClienteTela extends MenuOpcoes {
 		btnImportarXML.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClienteListWrapper cli = new ClienteListWrapper();
-				cli = cliXml.ImportarXml(cli, new File("listaCliente.xml"));
+				cli = cliXml.ImportarXml(cli, new File("listaClientes.xml"));
 				lista.clear();
 				lista = cli.getListaCliente();
 				for (Cliente cliente : lista) {

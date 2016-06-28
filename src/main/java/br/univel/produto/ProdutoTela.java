@@ -84,7 +84,7 @@ public class ProdutoTela extends MenuOpcoes {
 
 				ProdutoListWrapper pro = new ProdutoListWrapper();
 				pro.setListaProduto(lista);
-				proXml.ExportarXml(pro, new File("listaProduto.xml"));
+				proXml.ExportarXml(pro, new File("listaProdutos.xml"));
 				JOptionPane.showMessageDialog(null, "Arquivo exportado!");
 			}
 		});
@@ -92,7 +92,7 @@ public class ProdutoTela extends MenuOpcoes {
 		btnImportarXML.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ProdutoListWrapper pro = new ProdutoListWrapper();
-				pro = proXml.ImportarXml(pro, new File("listaProduto.xml"));
+				pro = proXml.ImportarXml(pro, new File("listaProdutos.xml"));
 				lista.clear();
 				lista = pro.getListaProduto();
 				for (Produto cli : lista) {
@@ -141,10 +141,10 @@ public class ProdutoTela extends MenuOpcoes {
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				if (lista.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhum cliente para ser alterado.");
+					JOptionPane.showMessageDialog(null, "Nenhum produto para ser alterado.");
 				} else {
 					if (table.getSelectedRow() == -1) {
-						JOptionPane.showMessageDialog(null, "Selecione um cliente.");
+						JOptionPane.showMessageDialog(null, "Selecione um produto.");
 					} else {
 				ProdutoNovo AltProduto = new ProdutoNovo();		
 				AltProduto.setSize(445, 380);
@@ -179,7 +179,7 @@ public class ProdutoTela extends MenuOpcoes {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(null, "Selecione um cliente!");
 					} else {
-						int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o cliente ?", "excluir",
+						int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o produto ?", "excluir",
 								JOptionPane.YES_NO_OPTION);
 						if (resposta == 0) {
 							int codigo = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
