@@ -11,16 +11,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
 
+@SuppressWarnings("serial")
 @XmlRootElement(name = "produto")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Tabela("cad_produto")
 public class Produto implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4527915780549634995L;
-	
 	@XmlElement(name = "id")
 	@Coluna(pk = true, nome = "pdId", tamanho = -1)
 	private int id;
@@ -30,7 +26,7 @@ public class Produto implements Serializable{
 	private String descricao;
 	
 	@XmlElement(name = "preco")
-	@Coluna(nome="pdpreco")
+	@Coluna(nome="pdPreco")
 	private BigDecimal preco;
 
 	public Produto(int id, String descricao, BigDecimal preco) {

@@ -25,49 +25,43 @@ public class ClienteNovo extends JFrame {
 	private static final long serialVersionUID = 772046454694497130L;
 	public GroupLayout groupLayout;
 	public JButton btnSalvar;
+	public JButton btnAlterar;
 	public JButton btnCancelar;
 	public JLabel lblTitulo;
-	private static JTextField txtnome;
-	private static JTextField txtendereco;
-	private static JTextField txtnumero;
-	private static JTextField txtcomplemento;
-	private static JTextField txtbairro;
-	private static JTextField txtcep;
-	private static JTextField txttelefone;
-	private static JTextField txtcelular;
-	private static JTextField txtCidade;
-	private static JTextField txtEstado;
-	private static JTextField txtCodigo;
+	private static JTextField textnome;
+	private static JTextField textendereco;
+	private static JTextField textnumero;
+	private static JTextField textcomplemento;
+	private static JTextField textbairro;
+	private static JTextField textcep;
+	private static JTextField texttelefone;
+	private static JTextField textcelular;
+	private static JTextField textCidade;
+	private static JTextField textEstado;
+	private static JTextField textCodigo;
 
 	public ClienteNovo() {
 		setBounds(100, 100, 445, 370);
 		setTitle("Cadastro de Cliente");
 
+		
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				Cliente cli = new Cliente();
 
-				ClienteDao conCli = new ClienteDao();
-				try {
-					conCli.setCon(new ConexaoBD().abrirConexao());
-					System.err.println(conCli);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
-				cli.setId(Integer.parseInt(txtCodigo.getText()));
-				cli.setNome(txtnome.getText());
-				cli.setEndereco(txtendereco.getText());
-				cli.setNumero(txtnumero.getText());
-				cli.setComplemento(txtcomplemento.getText());
-				cli.setBairro(txtbairro.getText());
-				cli.setCidade(txtCidade.getText());
-				cli.setEstado(txtEstado.getText());
-				cli.setCep(txtcep.getText());
-				cli.setCelular(txtcelular.getText());
-				cli.setTelefone(txttelefone.getText());
+				cli.setId(Integer.parseInt(textCodigo.getText()));
+				cli.setNome(textnome.getText());
+				cli.setEndereco(textendereco.getText());
+				cli.setNumero(textnumero.getText());
+				cli.setComplemento(textcomplemento.getText());
+				cli.setBairro(textbairro.getText());
+				cli.setCidade(textCidade.getText());
+				cli.setEstado(textEstado.getText());
+				cli.setCep(textcep.getText());
+				cli.setCelular(textcelular.getText());
+				cli.setTelefone(texttelefone.getText());
 
 				/*
 				 * cli.setId(1); cli.setNome("BATATA");
@@ -80,8 +74,23 @@ public class ClienteNovo extends JFrame {
 				 * System.out.println(cli.getId());
 				 * System.out.println(cli.getNome());
 				 */
-				conCli.salvar(cli);
-				JOptionPane.showMessageDialog(null, "Cliente Cadastrado");
+
+				ClienteDao conCli = new ClienteDao();
+				try {
+					conCli.setCon(new ConexaoBD().abrirConexao());
+					System.err.println(conCli);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				 conCli.salvar(cli);	
+				/*if (opcao = "alterar") {
+				    conCli.salvar(cli);	
+				}else 
+					conCli.atualizar(cli);*/
+				
+				JOptionPane.showMessageDialog(null, "Concluido com sucesso!");
 
 				dispose();
 			}
@@ -102,56 +111,56 @@ public class ClienteNovo extends JFrame {
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtnome = new JTextField();
-		txtnome.setColumns(10);
+		textnome = new JTextField();
+		textnome.setColumns(10);
 
 		JLabel lblEndereco = new JLabel("Endere\u00E7o:");
 		lblEndereco.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtendereco = new JTextField();
-		txtendereco.setColumns(10);
+		textendereco = new JTextField();
+		textendereco.setColumns(10);
 
 		JLabel lblNumero = new JLabel("Numero:");
 		lblNumero.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtnumero = new JTextField();
-		txtnumero.setColumns(10);
+		textnumero = new JTextField();
+		textnumero.setColumns(10);
 
 		JLabel lblComplemento = new JLabel("Complemento:");
 		lblComplemento.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtcomplemento = new JTextField();
-		txtcomplemento.setColumns(10);
+		textcomplemento = new JTextField();
+		textcomplemento.setColumns(10);
 
 		JLabel lblBairro = new JLabel("Bairro:");
 		lblBairro.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtbairro = new JTextField();
-		txtbairro.setColumns(10);
+		textbairro = new JTextField();
+		textbairro.setColumns(10);
 
 		JLabel lblCep = new JLabel("CEP:");
 		lblCep.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtcep = new JTextField();
-		txtcep.setColumns(10);
+		textcep = new JTextField();
+		textcep.setColumns(10);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txttelefone = new JTextField();
-		txttelefone.setColumns(10);
+		texttelefone = new JTextField();
+		texttelefone.setColumns(10);
 
 		JLabel lblCelular = new JLabel("Celular:");
 		lblCelular.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtcelular = new JTextField();
-		txtcelular.setColumns(10);
+		textcelular = new JTextField();
+		textcelular.setColumns(10);
 
-		txtCidade = new JTextField();
-		txtCidade.setColumns(10);
+		textCidade = new JTextField();
+		textCidade.setColumns(10);
 
-		txtEstado = new JTextField();
-		txtEstado.setColumns(10);
+		textEstado = new JTextField();
+		textEstado.setColumns(10);
 
 		JLabel lblCidade = new JLabel("Cidade:");
 		lblCidade.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -159,8 +168,8 @@ public class ClienteNovo extends JFrame {
 		JLabel lblEstado = new JLabel("Estado:");
 		lblEstado.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
-		txtCodigo = new JTextField();
-		txtCodigo.setColumns(10);
+		textCodigo = new JTextField();
+		textCodigo.setColumns(10);
 
 		JLabel lblCodigo = new JLabel("C\u00F3digo");
 		lblCodigo.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -186,12 +195,12 @@ public class ClienteNovo extends JFrame {
 												.createParallelGroup(Alignment.TRAILING)
 												.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(txtcep, GroupLayout.PREFERRED_SIZE, 104,
+																.addComponent(textcep, GroupLayout.PREFERRED_SIZE, 104,
 																		GroupLayout.PREFERRED_SIZE)
 																.addComponent(lblCep))
 														.addPreferredGap(ComponentPlacement.UNRELATED)
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblTelefone).addComponent(txttelefone,
+																.addComponent(lblTelefone).addComponent(texttelefone,
 																		GroupLayout.PREFERRED_SIZE, 136,
 																		GroupLayout.PREFERRED_SIZE))
 														.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -200,11 +209,11 @@ public class ClienteNovo extends JFrame {
 																		.addComponent(lblCelular).addPreferredGap(
 																				ComponentPlacement.RELATED, 90,
 																				Short.MAX_VALUE))
-																.addComponent(txtcelular,
+																.addComponent(textcelular,
 																		GroupLayout.DEFAULT_SIZE, 141,
 																		Short.MAX_VALUE)))
 												.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-														.addComponent(txtbairro, GroupLayout.PREFERRED_SIZE, 217,
+														.addComponent(textbairro, GroupLayout.PREFERRED_SIZE, 217,
 																GroupLayout.PREFERRED_SIZE)
 														.addPreferredGap(ComponentPlacement.UNRELATED)
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -212,25 +221,25 @@ public class ClienteNovo extends JFrame {
 																		.addComponent(lblBairro)
 																		.addPreferredGap(ComponentPlacement.RELATED,
 																				130, Short.MAX_VALUE))
-																.addComponent(txtcomplemento, GroupLayout.DEFAULT_SIZE,
+																.addComponent(textcomplemento, GroupLayout.DEFAULT_SIZE,
 																		174, Short.MAX_VALUE)))
 												.addComponent(lblComplemento, Alignment.LEADING)
 												.addGroup(Alignment.LEADING,
 														groupLayout.createSequentialGroup().addGroup(groupLayout
 																.createParallelGroup(Alignment.LEADING, false)
-																.addComponent(txtendereco, GroupLayout.DEFAULT_SIZE,
+																.addComponent(textendereco, GroupLayout.DEFAULT_SIZE,
 																		277, Short.MAX_VALUE)
 																.addComponent(lblEndereco))
 																.addPreferredGap(ComponentPlacement.UNRELATED)
 																.addGroup(groupLayout
 																		.createParallelGroup(Alignment.LEADING)
-																		.addComponent(txtnumero,
+																		.addComponent(textnumero,
 																				GroupLayout.DEFAULT_SIZE, 114,
 																				Short.MAX_VALUE)
 																		.addComponent(lblNumero)))
 												.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblCidade).addComponent(txtCidade,
+																.addComponent(lblCidade).addComponent(textCidade,
 																		GroupLayout.PREFERRED_SIZE, 217,
 																		GroupLayout.PREFERRED_SIZE))
 														.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -238,16 +247,16 @@ public class ClienteNovo extends JFrame {
 																.createParallelGroup(Alignment.LEADING, false)
 																.addGroup(groupLayout.createSequentialGroup()
 																		.addComponent(lblEstado).addGap(129))
-																.addComponent(txtEstado)))
+																.addComponent(textEstado)))
 												.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(txtCodigo, GroupLayout.PREFERRED_SIZE,
+																.addComponent(textCodigo, GroupLayout.PREFERRED_SIZE,
 																		GroupLayout.DEFAULT_SIZE,
 																		GroupLayout.PREFERRED_SIZE)
 																.addComponent(lblCodigo))
 														.addPreferredGap(ComponentPlacement.UNRELATED)
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblNome).addComponent(txtnome,
+																.addComponent(lblNome).addComponent(textnome,
 																		GroupLayout.DEFAULT_SIZE, 305,
 																		Short.MAX_VALUE))))
 												.addGap(166)))));
@@ -258,28 +267,28 @@ public class ClienteNovo extends JFrame {
 								.addComponent(lblNome))
 						.addGap(6)
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								.addComponent(textCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 										GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtnome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								.addComponent(textnome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 										GroupLayout.PREFERRED_SIZE))
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup().addComponent(lblEndereco)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(txtendereco,
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(textendereco,
 												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup().addComponent(lblNumero)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(txtnumero,
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(textnumero,
 												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE)))
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup().addComponent(lblComplemento)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(txtbairro,
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(textbairro,
 												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup().addComponent(lblBairro)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(txtcomplemento,
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(textcomplemento,
 												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE)))
 						.addPreferredGap(ComponentPlacement.RELATED)
@@ -287,14 +296,14 @@ public class ClienteNovo extends JFrame {
 								.addComponent(lblEstado))
 						.addGap(7)
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtCidade, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								.addComponent(textCidade, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 										GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtEstado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								.addComponent(textEstado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 										GroupLayout.PREFERRED_SIZE))
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup().addComponent(lblCep)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(txtcep,
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(textcep,
 												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup()
@@ -302,9 +311,9 @@ public class ClienteNovo extends JFrame {
 												.addComponent(lblTelefone).addComponent(lblCelular))
 										.addPreferredGap(ComponentPlacement.RELATED)
 										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-												.addComponent(txttelefone, GroupLayout.PREFERRED_SIZE,
+												.addComponent(texttelefone, GroupLayout.PREFERRED_SIZE,
 														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addComponent(txtcelular, GroupLayout.PREFERRED_SIZE,
+												.addComponent(textcelular, GroupLayout.PREFERRED_SIZE,
 														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 						.addGap(18).addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(btnSalvar)
 								.addComponent(btnCancelar))
@@ -325,18 +334,17 @@ public class ClienteNovo extends JFrame {
 
 		Cliente cli = cliCon.buscar(id);
 
-		txtCodigo.setText(Integer.toString(cli.getId()));
-		txtnome.setText(cli.getNome());
-		txtendereco.setText(cli.getEndereco());
-		txtnumero.setText(cli.getNumero());
-		txtcomplemento.setText(cli.getComplemento());
-		txtbairro.setText(cli.getBairro());
-		txtCidade.setText(cli.getCidade());
-		txtEstado.setText(cli.getEstado());
-		txtcep.setText(cli.getCep());
-		txttelefone.setText(cli.getTelefone());
-		txtcelular.setText(cli.getCelular());
-		
+		textCodigo.setText(Integer.toString(cli.getId()));
+		textnome.setText(cli.getNome());
+		textendereco.setText(cli.getEndereco());
+		textnumero.setText(cli.getNumero());
+		textcomplemento.setText(cli.getComplemento());
+		textbairro.setText(cli.getBairro());
+		textCidade.setText(cli.getCidade());
+		textEstado.setText(cli.getEstado());
+		textcep.setText(cli.getCep());
+		texttelefone.setText(cli.getTelefone());
+		textcelular.setText(cli.getCelular());
 
 	}
 

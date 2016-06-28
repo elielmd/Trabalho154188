@@ -51,8 +51,8 @@ public class ClienteTela extends MenuOpcoes {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				table.getModel().getValueAt(table.getSelectedRow(), 1);
-				int cod = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
-				cliCon.buscar(cod);
+				int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
+				cliCon.buscar(id);
 			}
 		});
 
@@ -137,9 +137,10 @@ public class ClienteTela extends MenuOpcoes {
 
 			}
 		});
-
+		
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				if (lista.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum cliente para ser alterado.");
 				} else {
@@ -164,6 +165,9 @@ public class ClienteTela extends MenuOpcoes {
 				NewCliente.setLocationRelativeTo(null);
 				NewCliente.lblTitulo.setText("Novo Cliente");
 				NewCliente.setVisible(true);
+				lista = cliCon.listarTodos();
+				ClienteModel modelo = new ClienteModel(lista);
+				table.setModel(modelo);
 			}
 		});
 

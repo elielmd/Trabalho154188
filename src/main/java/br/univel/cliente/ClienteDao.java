@@ -94,18 +94,17 @@ public class ClienteDao implements Dao<Cliente, Integer> {
 		try {
 
 			PreparedStatement ps = sql.getSqlUpdateById(con, t);
-			ps.setInt(1, t.getId());
-			ps.setString(2, t.getNome());
-			ps.setString(3, t.getEndereco());
-			ps.setString(4, t.getNumero());
-			ps.setString(5, t.getComplemento());
-			ps.setString(6, t.getBairro());
-			ps.setString(7, t.getCidade());
-			ps.setString(8, t.getEstado());
-			ps.setString(9, t.getCep());
-			ps.setString(10, t.getTelefone());
-			ps.setString(11, t.getCelular());
-			
+			ps.setString(1, t.getNome());
+			ps.setString(2, t.getEndereco());
+			ps.setString(3, t.getNumero());
+			ps.setString(4, t.getComplemento());
+			ps.setString(5, t.getBairro());
+			ps.setString(6, t.getCidade());
+			ps.setString(7, t.getEstado());
+			ps.setString(8, t.getCep());
+			ps.setString(9, t.getTelefone());
+			ps.setString(10, t.getCelular());
+			ps.setInt(11, t.getId());
 
 			ps.executeUpdate();
 			ps.close();
