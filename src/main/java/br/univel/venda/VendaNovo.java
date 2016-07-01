@@ -47,7 +47,6 @@ public class VendaNovo extends JFrame {
 	public VendaNovo() {
 		setTitle("Venda");
 
-		
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnSalvar.addActionListener(new ActionListener() {
@@ -103,7 +102,7 @@ public class VendaNovo extends JFrame {
 		lblTotalVenda.setFont(new Font("Times New Roman", Font.BOLD, 15));
 
 		textCliente = new JTextField();
-		textCliente.setEditable(false);
+		textCliente.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		textCliente.setColumns(10);
 
 		JButton btnProcurarCliente = new JButton("Buscar");
@@ -122,6 +121,7 @@ public class VendaNovo extends JFrame {
 				cliente.btnImportarTXT.setEnabled(false);
 				cliente.btnImportarSER.setEnabled(false);
 				cliente.btnExportarSER.setEnabled(false);
+				cliente.setFrameSecundario(getVendaNovo());
 				cliente.setVisible(true);
 			}
 		});
@@ -135,7 +135,6 @@ public class VendaNovo extends JFrame {
 		lblProduto.setFont(new Font("Times New Roman", Font.BOLD, 15));
 
 		textNomeMerc = new JTextField();
-		textNomeMerc.setEditable(false);
 		textNomeMerc.setColumns(10);
 
 		JButton btnProcurarProd = new JButton("Buscar");
@@ -214,90 +213,80 @@ public class VendaNovo extends JFrame {
 		});
 		btnExcluirMerc.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(26)
-							.addComponent(textNomeMerc, GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(24)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textCliente, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(scrollPane, 0, 0, Short.MAX_VALUE)
-										.addComponent(lblCliente)
-										.addComponent(lblProduto)
-										.addComponent(btnProcurarCliente, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnProcurarProd, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(btnInserirProd, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(btnExcluirMerc)))
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblQtde)
-										.addComponent(lblValorVenda)
-										.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblTotalVenda, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnCancelar))
-									.addPreferredGap(ComponentPlacement.RELATED)))))
-					.addGap(23))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblTitulo)
-					.addGap(6)
-					.addComponent(lblCliente)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textCliente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnProcurarCliente)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblProduto)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textNomeMerc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(9)
-					.addComponent(btnProcurarProd)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblQtde)
-							.addGap(1)
-							.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-							.addComponent(lblValorVenda)
-							.addGap(3)
-							.addComponent(lblTotalVenda)
-							.addGap(21)))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnInserirProd)
-						.addComponent(btnSalvar)
-						.addComponent(btnExcluirMerc)
-						.addComponent(btnCancelar))
-					.addGap(24))
-		);
-		
+		groupLayout
+				.setHorizontalGroup(
+						groupLayout.createParallelGroup(
+								Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
+										.createParallelGroup(Alignment.LEADING)
+										.addGroup(groupLayout.createSequentialGroup().addGap(26).addComponent(
+												textNomeMerc, GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
+										.addGroup(
+												groupLayout.createSequentialGroup().addContainerGap().addComponent(
+														lblTitulo, GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
+										.addGroup(groupLayout.createSequentialGroup().addGap(24).addGroup(groupLayout
+												.createParallelGroup(Alignment.LEADING).addComponent(textCliente,
+														Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 362,
+														Short.MAX_VALUE)
+												.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
+														.createParallelGroup(Alignment.LEADING)
+														.addComponent(scrollPane, 0, 0, Short.MAX_VALUE)
+														.addComponent(lblCliente).addComponent(lblProduto)
+														.addComponent(btnProcurarCliente, GroupLayout.PREFERRED_SIZE,
+																98, GroupLayout.PREFERRED_SIZE)
+														.addComponent(btnProcurarProd, GroupLayout.PREFERRED_SIZE, 97,
+																GroupLayout.PREFERRED_SIZE)
+														.addGroup(groupLayout.createSequentialGroup()
+																.addComponent(btnInserirProd,
+																		GroupLayout.PREFERRED_SIZE, 85,
+																		GroupLayout.PREFERRED_SIZE)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
+																.addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 81,
+																		GroupLayout.PREFERRED_SIZE)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
+																.addComponent(btnExcluirMerc)))
+														.addPreferredGap(ComponentPlacement.RELATED)
+														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+																.addComponent(lblQtde).addComponent(lblValorVenda)
+																.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, 66,
+																		GroupLayout.PREFERRED_SIZE)
+																.addComponent(lblTotalVenda, GroupLayout.PREFERRED_SIZE,
+																		75, GroupLayout.PREFERRED_SIZE)
+																.addComponent(btnCancelar))
+														.addPreferredGap(ComponentPlacement.RELATED)))))
+										.addGap(23)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addContainerGap().addComponent(lblTitulo).addGap(6)
+						.addComponent(lblCliente).addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(textCliente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnProcurarCliente)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblProduto)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(textNomeMerc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addGap(9).addComponent(btnProcurarProd).addGap(18)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createSequentialGroup().addComponent(lblQtde).addGap(1)
+										.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+										.addComponent(lblValorVenda).addGap(3).addComponent(lblTotalVenda).addGap(21)))
+						.addGap(18)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(btnInserirProd)
+								.addComponent(btnSalvar).addComponent(btnExcluirMerc).addComponent(btnCancelar))
+						.addGap(24)));
+
 		tblProdutos = new JTable();
 		scrollPane.setViewportView(tblProdutos);
 		getContentPane().setLayout(groupLayout);
-		
-//		setFormAtual(this);
-//		// $hide>>$
-//		montarConsulta();
-//		calcularTotal();
-//		// $hide<<$			
+
+		 setVendaNovo(this);
+//		 // $hide>>$
+//		 montarConsulta();
+//		 calcularTotal();
+//		 // $hide<<$
 	}
 
 	public Produto getProduto() {
@@ -308,13 +297,14 @@ public class VendaNovo extends JFrame {
 		this.produto = produto;
 	}
 
-	// public LanVendas getFormAtual() {
-	// return formAtual;
-	// }
-	//
-	// public void setFormAtual(LanVendas formAtual) {
-	// this.formAtual = formAtual;
-	// }
+	public VendaNovo getVendaNovo() {
+		return vendaNovo;
+	}
+
+	public void setVendaNovo(VendaNovo vendaNovo) {
+		this.vendaNovo = vendaNovo;
+	}
+
 	//
 	// private void montarConsulta(){
 	// ModeloItemVenda modelo = new ModeloItemVenda(itens);//instancia um modelo
@@ -338,13 +328,14 @@ public class VendaNovo extends JFrame {
 	// lblTotal.setText(total.toString());
 	// }
 	//
-	// public Cliente getClienteAtual() {
-	// return clienteAtual;
-	// }
-	//
-	// public void setClienteAtual(Cliente clienteAtual) {
-	// this.clienteAtual = clienteAtual;
-	// }
+	public Cliente getClienteAtual() {
+		return cliente;
+	}
+
+	public void setClienteAtual(Cliente clienteAtual) {
+		this.cliente = clienteAtual;
+	}
+
 	//
 	public boolean isEditando() {
 		return editando;

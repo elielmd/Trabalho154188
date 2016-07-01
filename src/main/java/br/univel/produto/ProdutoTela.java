@@ -150,6 +150,7 @@ public class ProdutoTela extends MenuOpcoes {
 				AltProduto.setSize(445, 380);
 				AltProduto.setLocationRelativeTo(null); 
 				AltProduto.lblTitulo.setText("Alterar Produto");
+				AltProduto.setOpcaoCrud(true);
 				AltProduto.setVisible(true);		
 				ProdutoNovo.buscaDados((int) table.getModel().getValueAt(table.getSelectedRow(), 0));
 					}

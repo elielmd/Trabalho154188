@@ -138,6 +138,12 @@ public class Main extends JFrame {
 				Main principal = new Main();
 				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
+				try {
+					conectaBanco.fecharConexao();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 	}

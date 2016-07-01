@@ -52,7 +52,6 @@ public class ClienteNovo extends JFrame {
 	public ClienteNovo() {
 		setBounds(100, 100, 445, 370);
 		setTitle("Cadastro de Cliente");
-
 		
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
@@ -97,13 +96,12 @@ public class ClienteNovo extends JFrame {
 
 //				conCli.atualizar(cli);
 //				conCli.salvar(cli);					
-
 				
-				 conCli.salvar(cli);	
-				/*if (opcao = "alterar") {
-				    conCli.salvar(cli);	
-				}else 
-					conCli.atualizar(cli);*/
+				if(opcaoCrud()){
+					conCli.atualizar(cli);
+				}else{
+					conCli.salvar(cli);					
+				}
 				
 				JOptionPane.showMessageDialog(null, "Concluido com sucesso!");
 

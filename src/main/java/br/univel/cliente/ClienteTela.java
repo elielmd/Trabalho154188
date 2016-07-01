@@ -19,6 +19,7 @@ import br.univel.ExportaArqXML;
 import br.univel.ExportaSerializador;
 import br.univel.LerArquivoTXT;
 import br.univel.MenuOpcoes;
+import br.univel.venda.VendaNovo;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -34,6 +35,7 @@ public class ClienteTela extends MenuOpcoes {
 	private ExportaArqXML<ClienteListWrapper> cliXml = new ExportaArqXML<ClienteListWrapper>();
 	private ExportaSerializador<List<Cliente>> serDat = new ExportaSerializador<List<Cliente>>();
 	private ClienteDao cliCon = new ClienteDao();
+	private VendaNovo frameSecundario;
 
 	public ClienteTela() {
 		ConexaoBD conectaBanco = new ConexaoBD();
@@ -67,9 +69,13 @@ public class ClienteTela extends MenuOpcoes {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				if(frameSecundario != null){
+					frameSecundario.textCliente.setText((String) table.getModel().getValueAt(table.getSelectedRow(), 1));
 				table.getModel().getValueAt(table.getSelectedRow(), 1);
 				int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
-				cliCon.buscar(id);
+				frameSecundario.setClienteAtual(cliCon.buscar(id));
+				dispose();
+				}			
 			}
 		});
 
@@ -168,7 +174,7 @@ public class ClienteTela extends MenuOpcoes {
 						AltCliente.setSize(445, 380);
 						AltCliente.setLocationRelativeTo(null);
 						AltCliente.lblTitulo.setText("Alterar Cliente");
-						AltCliente.setOpcaoCrud(false);
+						AltCliente.setOpcaoCrud(true);
 						AltCliente.setVisible(true);
 						ClienteNovo.buscaDados((int) table.getModel().getValueAt(table.getSelectedRow(), 0));
 					}
@@ -234,4 +240,12 @@ public class ClienteTela extends MenuOpcoes {
 		jasperViewer.setVisible(true);
 
 	}
+	
+	public VendaNovo getFrameSecundario() {
+		return frameSecundario;
+	}
+
+	public void setFrameSecundario(VendaNovo frameSecundario) {
+		this.frameSecundario = frameSecundario;
+	} 
 }

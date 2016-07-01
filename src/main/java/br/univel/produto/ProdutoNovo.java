@@ -30,6 +30,15 @@ public class ProdutoNovo extends JFrame {
 	private static JTextField textDescricao;
 	private static JTextField textPreco;
 	private static JTextField textId;
+	private boolean opcao = false;
+	
+	public boolean opcaoCrud() {
+		return opcao;
+	}
+
+	public void setOpcaoCrud(boolean opcao) {
+		this.opcao = opcao;
+	}
 
 	public ProdutoNovo() {
 		setBounds(100, 100, 400, 280);
@@ -50,7 +59,12 @@ public class ProdutoNovo extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				conPro.atualizar(pro);
+				if(opcaoCrud()){
+					conPro.atualizar(pro);
+				}else{
+					conPro.salvar(pro);					
+				}
+				
 				dispose();
 			}
 		});
