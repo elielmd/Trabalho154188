@@ -17,9 +17,6 @@ import br.univel.ConexaoBD;
 import br.univel.ExportaArqXML;
 import br.univel.ExportaSerializador;
 import br.univel.MenuOpcoes;
-import br.univel.produto.ProdutoNovo;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 
 public class VendaTela extends MenuOpcoes {
 
@@ -53,8 +50,20 @@ public class VendaTela extends MenuOpcoes {
 				venCon.buscar(id);
 			}
 		});
-
-		venCon.criarTabela(new Venda());
+		
+		//venCon.criarTabela(new Venda());
+		
+//		DaoVendaProduto vp = new DaoVendaProduto();
+//
+//		try {
+//			vp.setCon(conectaBanco.abrirConexao());
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}			
+//
+//		vp.criarTabela(new VendaProduto());
+		
 		btnImportarTXT.setVisible(false);
 		btnAtualizaTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -146,11 +155,11 @@ public class VendaTela extends MenuOpcoes {
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VendaNovo NewVenda = new VendaNovo();
-				NewVenda.setSize(445, 380);
+				NewVenda.setSize(430, 470);
 				NewVenda.setLocationRelativeTo(null);
 				NewVenda.lblTitulo.setText("Nova Venda");
 				NewVenda.setVisible(true);
-				//lista = venCon.listarTodos();
+				lista = venCon.listarTodos();
 				VendaModel modelo = new VendaModel(lista);
 				table.setModel(modelo);
 			}

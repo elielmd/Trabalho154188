@@ -39,7 +39,7 @@ public class VendaNovo extends JFrame {
 	private Produto produto;
 	private Cliente cliente;
 	private VendaNovo vendaNovo;
-	private List<VendaProduto> mercadorias = new ArrayList<VendaProduto>();
+	private List<VendaProduto> mercadoria = new ArrayList<VendaProduto>();
 	private JLabel lblTotalVenda;
 	private boolean editando = false;
 	private int codigoVenda;
@@ -53,14 +53,14 @@ public class VendaNovo extends JFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (mercadorias.isEmpty()) {
+				if (mercadoria.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Informe pelo um produto.");
 				} else {
 					Venda venda = new Venda();
 
 					venda.setIdVenda(getCodigoVenda());
 					venda.setCliente(cliente);
-					venda.setMercadorias(mercadorias);
+					venda.setMercadoria(mercadoria);
 
 					VendaDao venCon = new VendaDao();
 					try {
@@ -106,13 +106,13 @@ public class VendaNovo extends JFrame {
 		textCliente.setEditable(false);
 		textCliente.setColumns(10);
 
-		JButton btnProcurarCliente = new JButton("Procurar");
+		JButton btnProcurarCliente = new JButton("Buscar");
 		btnProcurarCliente.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnProcurarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// tela
+
 				ClienteTela cliente = new ClienteTela();
-				cliente.setSize(740, 460);
+				cliente.setSize(1000, 500);
 				cliente.setLocationRelativeTo(null);
 				cliente.btnInserir.setEnabled(false);
 				cliente.btnAlterar.setEnabled(false);
@@ -138,7 +138,7 @@ public class VendaNovo extends JFrame {
 		textNomeMerc.setEditable(false);
 		textNomeMerc.setColumns(10);
 
-		JButton btnProcurarProd = new JButton("Procurar");
+		JButton btnProcurarProd = new JButton("Buscar");
 		btnProcurarProd.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnProcurarProd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,7 +179,7 @@ public class VendaNovo extends JFrame {
 						merc.setProduto(produto);
 						merc.setVpQtd(Integer.parseInt(textQtde.getText()));
 						merc.setIdVenda(codigoVenda);
-						mercadorias.add(merc);
+						mercadoria.add(merc);
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Escolha um produto para lançamento.", "Aviso",
@@ -192,7 +192,7 @@ public class VendaNovo extends JFrame {
 		JButton btnExcluirMerc = new JButton("Excluir");
 		btnExcluirMerc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (mercadorias.isEmpty()) {
+				if (mercadoria.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum registro a ser excluído.", "Informação",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
@@ -205,7 +205,7 @@ public class VendaNovo extends JFrame {
 								JOptionPane.YES_NO_OPTION);
 
 						if (opcao == 0) {
-							mercadorias.remove(tblProdutos.getSelectedRow());
+							mercadoria.remove(tblProdutos.getSelectedRow());
 						}
 					}
 				}

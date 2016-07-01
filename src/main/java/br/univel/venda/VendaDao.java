@@ -38,7 +38,7 @@ public class VendaDao implements Dao<Venda, Integer> {
 			ps.close();
 
 			vendaDao.setCon(con);
-			for (VendaProduto vp : t.getMercadorias()) {
+			for (VendaProduto vp : t.getMercadoria()) {
 				vendaDao.salvar(vp);
 			}
 
@@ -70,7 +70,7 @@ public class VendaDao implements Dao<Venda, Integer> {
 			while (resultados.next()) {
 				venda.setIdVenda(resultados.getInt("id"));
 				venda.setCliente(dc.buscar(resultados.getInt("id_cliente")));
-				venda.setMercadorias(vendaDao.listarItensVenda(venda.getIdVenda()));
+				venda.setMercadoria(vendaDao.listarItensVenda(venda.getIdVenda()));
 			}
 
 			vendaDao.setCon(con);
@@ -99,7 +99,7 @@ public class VendaDao implements Dao<Venda, Integer> {
 
 			vendaDao.setCon(con);
 			vendaDao.excluir(t.getIdVenda());
-			for (VendaProduto iv : t.getMercadorias()) {
+			for (VendaProduto iv : t.getMercadoria()) {
 				vendaDao.salvar(iv);
 			}
 
@@ -154,7 +154,7 @@ public class VendaDao implements Dao<Venda, Integer> {
 
 				venda.setIdVenda(resultados.getInt("idV"));
 				venda.setCliente(cliCon.buscar(resultados.getInt("idCliente")));
-				venda.setMercadorias(vendaDao.listarItensVenda(venda.getIdVenda()));
+				venda.setMercadoria(vendaDao.listarItensVenda(venda.getIdVenda()));
 
 				listaVenda.add(venda);
 			}

@@ -14,7 +14,7 @@ import br.univel.cliente.Cliente;
 @XmlRootElement
 public class Venda implements Serializable {
 
-	private List<VendaProduto> mercadorias;
+	private List<VendaProduto> mercadoria;
 
 	@Coluna(nome = "idVenda", pk = true)
 	private int idVenda;
@@ -22,12 +22,12 @@ public class Venda implements Serializable {
 	@Coluna(nome = "idCliente")
 	private Cliente cliente;
 
-	public List<VendaProduto> getMercadorias() {
-		return mercadorias;
+	public List<VendaProduto> getMercadoria() {
+		return mercadoria;
 	}
 
-	public void setMercadorias(List<VendaProduto> mercadorias) {
-		this.mercadorias = mercadorias;
+	public void setMercadoria(List<VendaProduto> mercadoria) {
+		this.mercadoria = mercadoria;
 	}
 
 	public int getIdVenda() {
