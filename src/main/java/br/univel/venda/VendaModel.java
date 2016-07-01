@@ -42,7 +42,7 @@ public class VendaModel extends AbstractTableModel {
 
 		switch (columnIndex) {
 		case 0:
-			return v.getIdV();
+			return v.getIdVenda();
 		case 1:
 			return v.getCliente().getNome();
 		default:

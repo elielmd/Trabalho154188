@@ -32,14 +32,14 @@ public class VendaDao implements Dao<Venda, Integer> {
 		try {
 
 			PreparedStatement ps = sql.getSqlInsert(con, t);
-			ps.setInt(1, t.getIdV());
+			ps.setInt(1, t.getIdVenda());
 			ps.setInt(2, t.getCliente().getId());
 			ps.executeUpdate();
 			ps.close();
 
 			vendaDao.setCon(con);
-			for (VendaProduto iv : t.getMercadorias()) {
-				vendaDao.salvar(iv);
+			for (VendaProduto vp : t.getMercadorias()) {
+				vendaDao.salvar(vp);
 			}
 
 		} catch (SQLException e) {
@@ -51,7 +51,7 @@ public class VendaDao implements Dao<Venda, Integer> {
 	@Override
 	public Venda buscar(Integer k) {
 		SqlGenImpl sql = new SqlGenImpl();
-		Venda v = new Venda();
+		Venda venda = new Venda();
 		ClienteDao dc = new ClienteDao();
 		try {
 			dc.setCon(new ConexaoBD().abrirConexao());
@@ -68,9 +68,9 @@ public class VendaDao implements Dao<Venda, Integer> {
 
 			vendaDao.setCon(con);
 			while (resultados.next()) {
-				v.setIdV(resultados.getInt("id"));
-				v.setCliente(dc.buscar(resultados.getInt("id_cliente")));
-				v.setMercadorias(vendaDao.listarItensVenda(v.getIdV()));
+				venda.setIdVenda(resultados.getInt("id"));
+				venda.setCliente(dc.buscar(resultados.getInt("id_cliente")));
+				venda.setMercadorias(vendaDao.listarItensVenda(venda.getIdVenda()));
 			}
 
 			vendaDao.setCon(con);
@@ -82,7 +82,7 @@ public class VendaDao implements Dao<Venda, Integer> {
 			e.printStackTrace();
 		}
 
-		return v;
+		return venda;
 	}
 
 	@Override
@@ -93,12 +93,12 @@ public class VendaDao implements Dao<Venda, Integer> {
 
 			PreparedStatement ps = sql.getSqlUpdateById(con, t);
 			ps.setInt(1, t.getCliente().getId());
-			ps.setInt(2, t.getIdV());
+			ps.setInt(2, t.getIdVenda());
 			ps.executeUpdate();
 			ps.close();
 
 			vendaDao.setCon(con);
-			vendaDao.excluir(t.getIdV());
+			vendaDao.excluir(t.getIdVenda());
 			for (VendaProduto iv : t.getMercadorias()) {
 				vendaDao.salvar(iv);
 			}
@@ -152,9 +152,9 @@ public class VendaDao implements Dao<Venda, Integer> {
 
 				Venda venda = new Venda();
 
-				venda.setIdV(resultados.getInt("idV"));
+				venda.setIdVenda(resultados.getInt("idV"));
 				venda.setCliente(cliCon.buscar(resultados.getInt("idCliente")));
-				venda.setMercadorias(vendaDao.listarItensVenda(venda.getIdV()));
+				venda.setMercadorias(vendaDao.listarItensVenda(venda.getIdVenda()));
 
 				listaVenda.add(venda);
 			}

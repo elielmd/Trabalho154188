@@ -32,8 +32,8 @@ public class VendaProduto implements Serializable{
 	public Produto getProduto() {
 		return produto;
 	}
-	public void setProduto(Produto p) {
-		this.produto = p;
+	public void setProduto(Produto mercadoria) {
+		this.produto = mercadoria;
 	}
 	public int getVpQtd() {
 		return vpQtd;

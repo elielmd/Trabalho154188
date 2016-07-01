@@ -16,8 +16,8 @@ public class Venda implements Serializable {
 
 	private List<VendaProduto> mercadorias;
 
-	@Coluna(nome = "idV", pk = true)
-	private int idV;
+	@Coluna(nome = "idVenda", pk = true)
+	private int idVenda;
 
 	@Coluna(nome = "idCliente")
 	private Cliente cliente;
@@ -30,12 +30,12 @@ public class Venda implements Serializable {
 		this.mercadorias = mercadorias;
 	}
 
-	public int getIdV() {
-		return idV;
+	public int getIdVenda() {
+		return idVenda;
 	}
 
-	public void setIdV(int idV) {
-		this.idV = idV;
+	public void setIdVenda(int idVenda) {
+		this.idVenda = idVenda;
 	}
 
 	public Cliente getCliente() {
