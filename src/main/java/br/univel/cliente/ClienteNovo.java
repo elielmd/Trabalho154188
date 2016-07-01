@@ -87,7 +87,6 @@ public class ClienteNovo extends JFrame {
 				ClienteDao conCli = new ClienteDao();
 				try {
 					conCli.setCon(new ConexaoBD().abrirConexao());
-					System.err.println(conCli);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

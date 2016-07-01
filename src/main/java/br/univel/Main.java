@@ -62,7 +62,6 @@ public class Main extends JFrame {
 		JButton btnOpCliente = new JButton("CLIENTES");
 		btnOpCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("TESTE - TELA CLIENTE");
 
 				ClienteTela OpCliente = new ClienteTela();
 				OpCliente.setSize(910, 500);
