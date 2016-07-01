@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clientes>
+    <cliente>
+        <id>1</id>
+        <nome>Eliel</nome>
+        <endereco>Rua Grecia</endereco>
+        <numero>1046</numero>
+        <complemento>TESTE</complemento>
+        <bairro>Jardim Italia</bairro>
+        <cidade>Cascavel</cidade>
+        <estado>PR</estado>
+        <cep>85818330</cep>
+        <telefone>33282906</telefone>
+        <celular>98298779</celular>
+    </cliente>
+</clientes>

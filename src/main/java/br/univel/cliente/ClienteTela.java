@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -56,14 +55,53 @@ public class ClienteTela extends MenuOpcoes {
 		});
 
 		btnRelatorioCli.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				executarRelatorio("TESTE.jasper");	
+			}
+
+			private void executarRelatorio(String arquivo) {
+				JasperPrint jp = null;
 				try {
-					relatorioCliente();
-				} catch (JRException e1) {
+					jp = JasperFillManager.fillReport(arquivo, null, new ConexaoBD().abrirConexao());
+				} catch (SQLException | JRException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+
+				JasperViewer jasperViewer = new JasperViewer(jp);
+
+				jasperViewer.setBounds(50, 50, 320, 240);
+				jasperViewer.setLocationRelativeTo(null);
+				jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+				jasperViewer.setVisible(true);
+				
 			}
+
+//			private void imprimirRelClientes() throws JRException {
+//				String arq = "RelaCli_A4.jrxml";
+//				
+//				ClienteDao cliCon = new ClienteDao();
+//				try {
+//					cliCon.setCon(new ConexaoBD().abrirConexao());
+//				} catch (SQLException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//				ClienteJRDataSource ds = new ClienteJRDataSource(cliCon.listarTodos());
+//
+//
+//				JasperPrint jp = JasperFillManager.fillReport(arq, null, ds);
+//
+//				JasperViewer jasperViewer = new JasperViewer(jp);
+//
+//				jasperViewer.setBounds(50, 50, 320, 240);
+//				jasperViewer.setLocationRelativeTo(null);
+//				jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//
+//				jasperViewer.setVisible(true);
+//			}
 		});
 
 		table.addMouseListener(new MouseAdapter() {
@@ -217,29 +255,27 @@ public class ClienteTela extends MenuOpcoes {
 		});
 	}
 
-	protected void relatorioCliente() throws JRException {
-		String arq = "RelaCli_A4.jrxml";
-
-		ClienteDao cliCon = new ClienteDao();
-		try {
-			cliCon.setCon(new ConexaoBD().abrirConexao());
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		ClienteJRDataSource cRelatorio = new ClienteJRDataSource(cliCon.listarTodos());
-		System.out.println(cRelatorio);
-		HashMap treta = new HashMap();
-		JasperPrint jp;
-		jp = JasperFillManager.fillReport(arq, treta, cRelatorio);
-
-		JasperViewer jasperViewer = new JasperViewer(jp);
-		jasperViewer.setBounds(50, 50, 320, 240);
-		jasperViewer.setLocationRelativeTo(null);
-		jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		jasperViewer.setVisible(true);
-
-	}
+//	public void imprimirClientes() throws JRException {
+//		String arq = "TESTE.jrxml";
+//
+//		ClienteDao cliCon = new ClienteDao();
+//		try {
+//			cliCon.setCon(new ConexaoBD().abrirConexao());
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		ClienteJRDataSource cRelatorio = new ClienteJRDataSource(cliCon.listarTodos());
+//		JasperPrint jp;
+//		jp = JasperFillManager.fillReport(arq, null, cliCon.getCon());
+//
+//		JasperViewer jasperViewer = new JasperViewer(jp);
+//		jasperViewer.setBounds(50, 50, 320, 240);
+//		jasperViewer.setLocationRelativeTo(null);
+//		jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//		jasperViewer.setVisible(true);
+//
+//	}
 	
 	public VendaNovo getFrameSecundario() {
 		return frameSecundario;

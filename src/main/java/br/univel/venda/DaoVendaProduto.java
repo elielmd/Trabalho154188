@@ -34,7 +34,7 @@ public class DaoVendaProduto implements Dao<VendaProduto, Integer> {
 			PreparedStatement ps = sql.getSqlInsert(con, t);
 			ps.setInt(1, t.getIdVenda());
 			ps.setInt(2, t.getProduto().getId());
-			ps.setInt(3, t.getVpQtd());
+			ps.setFloat(3, t.getVpQtd());
 
 			ps.executeUpdate();
 			ps.close();
@@ -86,7 +86,7 @@ public class DaoVendaProduto implements Dao<VendaProduto, Integer> {
 		try {
 
 			PreparedStatement ps = sql.getSqlUpdateById(con, t);
-			ps.setInt(1, t.getVpQtd());
+			ps.setFloat(1, t.getVpQtd());
 			ps.setInt(2, t.getIdVenda());
 			ps.setInt(3, t.getProduto().getId());
 

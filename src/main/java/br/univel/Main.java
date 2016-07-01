@@ -16,9 +16,15 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
+import br.univel.cliente.ClienteDao;
+import br.univel.cliente.ClienteJRDataSource;
 import br.univel.cliente.ClienteTela;
 import br.univel.produto.ProdutoTela;
 import br.univel.venda.VendaTela;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Main extends JFrame {
 
@@ -106,8 +112,6 @@ public class Main extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("TESTE - TELA CLIENTE");
-
 				ClienteTela OpCliente = new ClienteTela();
 				OpCliente.setSize(900, 500);
 				OpCliente.setLocationRelativeTo(null);
@@ -147,4 +151,24 @@ public class Main extends JFrame {
 			}
 		});
 	}
+
+//	private void executarRelatorio(String arquivo) {
+//
+//		JasperPrint jp = null;
+//		try {
+//			jp = JasperFillManager.fillReport(arquivo, null, new ConexaoBD().abrirConexao());
+//		} catch (SQLException | JRException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//
+//		JasperViewer jasperViewer = new JasperViewer(jp);
+//
+//		jasperViewer.setBounds(50, 50, 320, 240);
+//		jasperViewer.setLocationRelativeTo(null);
+//		jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//
+//		jasperViewer.setVisible(true);
+//	}
+
 }

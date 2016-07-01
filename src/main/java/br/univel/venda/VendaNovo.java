@@ -43,6 +43,7 @@ public class VendaNovo extends JFrame {
 	private JLabel lblTotalVenda;
 	private boolean editando = false;
 	private int codigoVenda;
+	private JTextField textCodigoVenda;
 
 	public VendaNovo() {
 		setTitle("Venda");
@@ -143,7 +144,7 @@ public class VendaNovo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				ProdutoTela produto = new ProdutoTela();
-				produto.setSize(740, 460);
+				produto.setSize(1000, 500);
 				produto.setLocationRelativeTo(null);
 				produto.btnInserir.setEnabled(false);
 				produto.btnAlterar.setEnabled(false);
@@ -153,6 +154,7 @@ public class VendaNovo extends JFrame {
 				produto.btnImportarTXT.setEnabled(false);
 				produto.btnImportarSER.setEnabled(false);
 				produto.btnExportarSER.setEnabled(false);
+				produto.setFrameSecundario(getVendaNovo());
 				produto.setVisible(true);
 			}
 		});
@@ -212,81 +214,103 @@ public class VendaNovo extends JFrame {
 			}
 		});
 		btnExcluirMerc.setFont(new Font("Times New Roman", Font.BOLD, 15));
+
+		JLabel lblCodigo = new JLabel("Codigo");
+		lblCodigo.setFont(new Font("Times New Roman", Font.BOLD, 15));
+
+		textCodigoVenda = new JTextField();
+		textCodigoVenda.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout
-				.setHorizontalGroup(
-						groupLayout.createParallelGroup(
-								Alignment.TRAILING)
-								.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
-										.createParallelGroup(Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup().addGap(26).addComponent(
-												textNomeMerc, GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
-										.addGroup(
-												groupLayout.createSequentialGroup().addContainerGap().addComponent(
-														lblTitulo, GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
-										.addGroup(groupLayout.createSequentialGroup().addGap(24).addGroup(groupLayout
-												.createParallelGroup(Alignment.LEADING).addComponent(textCliente,
-														Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 362,
-														Short.MAX_VALUE)
-												.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
-														.createParallelGroup(Alignment.LEADING)
-														.addComponent(scrollPane, 0, 0, Short.MAX_VALUE)
-														.addComponent(lblCliente).addComponent(lblProduto)
-														.addComponent(btnProcurarCliente, GroupLayout.PREFERRED_SIZE,
-																98, GroupLayout.PREFERRED_SIZE)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
+				.createSequentialGroup()
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(
+								groupLayout.createSequentialGroup().addContainerGap().addComponent(lblTitulo,
+										GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup().addGap(24).addGroup(
+								groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+										.createSequentialGroup().addGroup(groupLayout
+												.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+														.createSequentialGroup()
+														.addComponent(btnInserirProd, GroupLayout.PREFERRED_SIZE, 85,
+																GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(ComponentPlacement.RELATED)
+														.addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 81,
+																GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(ComponentPlacement.RELATED,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+														.addComponent(btnExcluirMerc).addGap(6))
+												.addComponent(scrollPane, 0, 0, Short.MAX_VALUE)
+												.addGroup(groupLayout.createSequentialGroup()
 														.addComponent(btnProcurarProd, GroupLayout.PREFERRED_SIZE, 97,
 																GroupLayout.PREFERRED_SIZE)
-														.addGroup(groupLayout.createSequentialGroup()
-																.addComponent(btnInserirProd,
-																		GroupLayout.PREFERRED_SIZE, 85,
-																		GroupLayout.PREFERRED_SIZE)
-																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 81,
-																		GroupLayout.PREFERRED_SIZE)
-																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addComponent(btnExcluirMerc)))
-														.addPreferredGap(ComponentPlacement.RELATED)
+														.addPreferredGap(ComponentPlacement.RELATED)))
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(btnCancelar, GroupLayout.DEFAULT_SIZE,
+														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addGroup(groupLayout.createSequentialGroup().addGap(10)
 														.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblQtde).addComponent(lblValorVenda)
+																.addComponent(lblQtde)
 																.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, 66,
 																		GroupLayout.PREFERRED_SIZE)
-																.addComponent(lblTotalVenda, GroupLayout.PREFERRED_SIZE,
-																		75, GroupLayout.PREFERRED_SIZE)
-																.addComponent(btnCancelar))
-														.addPreferredGap(ComponentPlacement.RELATED)))))
-										.addGap(23)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap().addComponent(lblTitulo).addGap(6)
-						.addComponent(lblCliente).addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(textCliente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnProcurarCliente)
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblProduto)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(textNomeMerc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(9).addComponent(btnProcurarProd).addGap(18)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-								.addGroup(groupLayout.createSequentialGroup().addComponent(lblQtde).addGap(1)
-										.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																.addComponent(lblValorVenda)))
+												.addGroup(groupLayout.createSequentialGroup()
+														.addPreferredGap(ComponentPlacement.RELATED)
+														.addComponent(lblTotalVenda, GroupLayout.DEFAULT_SIZE,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+										.addGroup(groupLayout.createSequentialGroup()
+												.addComponent(textNomeMerc, GroupLayout.DEFAULT_SIZE, 362,
+														Short.MAX_VALUE)
+												.addPreferredGap(ComponentPlacement.RELATED))
+										.addComponent(lblProduto)
+										.addComponent(btnProcurarCliente, GroupLayout.PREFERRED_SIZE, 98,
 												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-										.addComponent(lblValorVenda).addGap(3).addComponent(lblTotalVenda).addGap(21)))
-						.addGap(18)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(btnInserirProd)
-								.addComponent(btnSalvar).addComponent(btnExcluirMerc).addComponent(btnCancelar))
-						.addGap(24)));
+										.addComponent(textCliente, GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+										.addGroup(groupLayout.createSequentialGroup().addGap(1).addComponent(lblCodigo)
+												.addPreferredGap(ComponentPlacement.RELATED).addComponent(
+														textCodigoVenda, GroupLayout.PREFERRED_SIZE, 104,
+														GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblCliente))))
+				.addGap(23)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addContainerGap().addComponent(lblTitulo).addGap(22)
+				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(lblCodigo).addComponent(
+						textCodigoVenda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(lblCliente)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(textCliente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnProcurarCliente)
+				.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblProduto)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(textNomeMerc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnProcurarProd)
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup().addComponent(lblQtde)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(textQtde, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(31).addComponent(lblValorVenda).addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(lblTotalVenda).addGap(11))
+						.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)))
+				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(btnInserirProd)
+						.addComponent(btnCancelar).addComponent(btnExcluirMerc).addComponent(btnSalvar))
+				.addGap(24)));
 
 		tblProdutos = new JTable();
 		scrollPane.setViewportView(tblProdutos);
 		getContentPane().setLayout(groupLayout);
 
-		 setVendaNovo(this);
-//		 // $hide>>$
-//		 montarConsulta();
-//		 calcularTotal();
-//		 // $hide<<$
+		setVendaNovo(this);
+		// // $hide>>$
+		// montarConsulta();
+		// calcularTotal();
+		// // $hide<<$
 	}
 
 	public Produto getProduto() {
@@ -305,12 +329,11 @@ public class VendaNovo extends JFrame {
 		this.vendaNovo = vendaNovo;
 	}
 
-	//
-	// private void montarConsulta(){
-	// ModeloItemVenda modelo = new ModeloItemVenda(itens);//instancia um modelo
-	// de tabela
-	// tblProdutos.setModel(modelo);//seta a tabela
-	// }
+	private void montarConsulta() {
+		VendaProdutoModel modelo = new VendaProdutoModel(mercadoria);
+		tblProdutos.setModel(modelo);
+	}
+
 	//
 	// private void limparProduto(){
 	// setProdutoAtual(null);
@@ -353,28 +376,27 @@ public class VendaNovo extends JFrame {
 	public void setCodigoVenda(int codigoVenda) {
 		this.codigoVenda = codigoVenda;
 	}
-	//
-	// public void carregarDados(int codigo){
-	//
-	// DaoVenda dv = new DaoVenda();
-	// try {
-	// dv.setCon(new Conexao().abrirConexao());
-	// } catch (SQLException e1) {
-	// // TODO Auto-generated catch block
-	// e1.printStackTrace();
-	// }
-	//
-	// Venda v = dv.buscar(codigo);
-	// itens.clear();
-	// itens = v.getItens();
-	//
-	//
-	// setClienteAtual(v.getCliente());
-	// txtCliente.setText(clienteAtual.getNome());
-	// setId_venda(v.getId());
-	// montarConsulta();
-	// calcularTotal();
-	// }
+
+	public void carregarDados(int codigo){
+	
+	 VendaDao venCon = new VendaDao();
+	 try {
+		 venCon.setCon(new ConexaoBD().abrirConexao());
+	 } catch (SQLException e1) {
+	 // TODO Auto-generated catch block
+	 e1.printStackTrace();
+	 }
+	
+	 Venda venda = venCon.buscar(codigo);
+	 mercadoria.clear();
+	 mercadoria = venda.getMercadoria();
+	
+	
+	 setClienteAtual(venda.getCliente());
+	 textCliente.setText(cliente.getNome());
+	 setCodigoVenda(venda.getIdVenda());
+	 montarConsulta();
+	}
 
 	public static void main(String[] args) {
 
@@ -384,7 +406,7 @@ public class VendaNovo extends JFrame {
 				VendaNovo principal = new VendaNovo();
 				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
-				principal.setSize(430, 480);
+				principal.setSize(430, 500);
 			}
 		});
 	}

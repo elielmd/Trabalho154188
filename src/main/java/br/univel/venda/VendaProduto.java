@@ -1,6 +1,7 @@
 package br.univel.venda;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -20,7 +21,7 @@ public class VendaProduto implements Serializable{
 	private Produto produto;
 	
 	@Coluna(nome="vpQtd")
-	private int vpQtd;
+	private float vpQtd;
 	
 	public int getIdVenda() {
 		return idVenda;
@@ -35,10 +36,10 @@ public class VendaProduto implements Serializable{
 	public void setProduto(Produto mercadoria) {
 		this.produto = mercadoria;
 	}
-	public int getVpQtd() {
+	public float getVpQtd() {
 		return vpQtd;
 	}
-	public void setVpQtd(int vpQtd) {
+	public void setVpQtd(float vpQtd) {
 		this.vpQtd = vpQtd;
 	}
 }

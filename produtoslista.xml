@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<produtos>
+    <produto>
+        <id>1</id>
+        <descricao>Coca Cola</descricao>
+        <preco>5.5</preco>
+    </produto>
+</produtos>

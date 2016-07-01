@@ -141,7 +141,7 @@ public class VendaTela extends MenuOpcoes {
 						JOptionPane.showMessageDialog(null, "Selecione um Venda.");
 					} else {
 						VendaNovo AltVenda = new VendaNovo();
-						AltVenda.setSize(430, 470);
+						AltVenda.setSize(430, 500);
 						AltVenda.setLocationRelativeTo(null);
 						AltVenda.lblTitulo.setText("Alterar Venda");
 						AltVenda.setVisible(true);
@@ -155,7 +155,7 @@ public class VendaTela extends MenuOpcoes {
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VendaNovo NewVenda = new VendaNovo();
-				NewVenda.setSize(430, 470);
+				NewVenda.setSize(430, 500);
 				NewVenda.setLocationRelativeTo(null);
 				NewVenda.lblTitulo.setText("Nova Venda");
 				NewVenda.setVisible(true);
@@ -195,7 +195,7 @@ public class VendaTela extends MenuOpcoes {
 				VendaTela principal = new VendaTela();
 				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
-				principal.setSize(910, 500);
+				principal.setSize(910, 510);
 			}
 		});
 	}

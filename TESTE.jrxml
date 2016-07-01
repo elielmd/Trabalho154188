@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-07-01T01:52:41 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TESTE" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d8c8e48-6655-470b-967b-0509ba585c3a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ClienteRel"/>
+	<queryString>
+		<![CDATA[select * from cad_cliente;]]>
+	</queryString>
+	<field name="CLID" class="java.lang.Integer"/>
+	<field name="CLNOME" class="java.lang.String"/>
+	<field name="CLENDERECO" class="java.lang.String"/>
+	<field name="CLNUMERO" class="java.lang.String"/>
+	<field name="CLCOMPLEMENTO" class="java.lang.String"/>
+	<field name="CLBAIRRO" class="java.lang.String"/>
+	<field name="CLCIDADE" class="java.lang.String"/>
+	<field name="CLESTADO" class="java.lang.String"/>
+	<field name="CLCEP" class="java.lang.String"/>
+	<field name="CLTELEFONE" class="java.lang.String"/>
+	<field name="CLCELULAR" class="java.lang.String"/>
+	<group name="CLID">
+		<groupExpression><![CDATA[$F{CLID}]]></groupExpression>
+	</group>
+	<group name="CLNOME">
+		<groupExpression><![CDATA[$F{CLNOME}]]></groupExpression>
+	</group>
+	<group name="CLENDERECO">
+		<groupExpression><![CDATA[$F{CLENDERECO}]]></groupExpression>
+	</group>
+	<group name="CLNUMERO">
+		<groupExpression><![CDATA[$F{CLNUMERO}]]></groupExpression>
+	</group>
+	<group name="CLCOMPLEMENTO">
+		<groupExpression><![CDATA[$F{CLCOMPLEMENTO}]]></groupExpression>
+	</group>
+	<group name="CLBAIRRO">
+		<groupExpression><![CDATA[$F{CLBAIRRO}]]></groupExpression>
+	</group>
+	<group name="CLCIDADE">
+		<groupExpression><![CDATA[$F{CLCIDADE}]]></groupExpression>
+	</group>
+	<group name="CLESTADO">
+		<groupExpression><![CDATA[$F{CLESTADO}]]></groupExpression>
+	</group>
+	<group name="CLCEP">
+		<groupExpression><![CDATA[$F{CLCEP}]]></groupExpression>
+	</group>
+	<group name="CLTELEFONE">
+		<groupExpression><![CDATA[$F{CLTELEFONE}]]></groupExpression>
+	</group>
+	<group name="CLCELULAR">
+		<groupExpression><![CDATA[$F{CLCELULAR}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="55" height="30" uuid="023c8aa7-1a5d-40ba-a44e-a0bd19c19273"/>
+				<text><![CDATA[CLID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="0" width="50" height="30" uuid="f140f146-2c2e-4911-bfe5-d0d4590e64d9"/>
+				<text><![CDATA[CLNOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="0" width="50" height="30" uuid="6a8a412f-5fcd-4d5a-b86e-7fd050bda4ca"/>
+				<text><![CDATA[CLENDERECO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="0" width="50" height="30" uuid="5cc4d403-d563-4814-8c20-0f4bbaeb9386"/>
+				<text><![CDATA[CLNUMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="0" width="50" height="30" uuid="9d8ba543-1264-4540-afb9-d8c2ed66b807"/>
+				<text><![CDATA[CLCOMPLEMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="0" width="50" height="30" uuid="0ee8c9c3-51bf-4d20-9006-2eba2f10120a"/>
+				<text><![CDATA[CLBAIRRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="50" height="30" uuid="9c5a51fb-8069-472d-96c7-5fe726e5f33f"/>
+				<text><![CDATA[CLCIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="0" width="50" height="30" uuid="dc3c6b09-7ef5-4c22-8da3-69188bf463eb"/>
+				<text><![CDATA[CLESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="0" width="50" height="30" uuid="5e702add-6a3a-4154-8112-f5e8a98badfc"/>
+				<text><![CDATA[CLCEP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="50" height="30" uuid="6ca6f1c0-cc73-4a5f-8054-efbef37483d8"/>
+				<text><![CDATA[CLTELEFONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="0" width="50" height="30" uuid="219b4ce4-0cf6-4f76-832e-b3541aae741e"/>
+				<text><![CDATA[CLCELULAR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="21" width="55" height="30" uuid="0c2596fd-3982-44bd-ad19-3aff3be6a3a5"/>
+				<textFieldExpression><![CDATA[$F{CLID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="21" width="50" height="30" uuid="16d8136a-e68a-492c-ac3e-d666de23539d"/>
+				<textFieldExpression><![CDATA[$F{CLNOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="21" width="50" height="30" uuid="bcc4d3d8-c474-47e3-a41e-a25cdbf80e00"/>
+				<textFieldExpression><![CDATA[$F{CLENDERECO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="21" width="50" height="30" uuid="d60c45ef-dc6a-42bc-a172-b72aad869f07"/>
+				<textFieldExpression><![CDATA[$F{CLNUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="21" width="50" height="30" uuid="e7dcaeaa-27a5-44c3-96d4-3b3caa1759df"/>
+				<textFieldExpression><![CDATA[$F{CLCOMPLEMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="21" width="50" height="30" uuid="3ab7c318-6a88-4b08-b2c1-fa6e805e7d9c"/>
+				<textFieldExpression><![CDATA[$F{CLBAIRRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="21" width="50" height="30" uuid="cf7e8e36-d958-4848-8544-6e1bc892dd4d"/>
+				<textFieldExpression><![CDATA[$F{CLCIDADE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="21" width="50" height="30" uuid="668bb9ba-656a-4b07-8d15-3b9a462ae2b5"/>
+				<textFieldExpression><![CDATA[$F{CLESTADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="21" width="50" height="30" uuid="ed51adc2-52ae-45c6-bfcb-035383c5718d"/>
+				<textFieldExpression><![CDATA[$F{CLCEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="21" width="50" height="30" uuid="5731439b-2fb3-4cbd-a1f1-89f698a2ceb7"/>
+				<textFieldExpression><![CDATA[$F{CLTELEFONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="505" y="21" width="50" height="30" uuid="60dce8a5-cea9-44d0-a785-ad48ab277e7c"/>
+				<textFieldExpression><![CDATA[$F{CLCELULAR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
